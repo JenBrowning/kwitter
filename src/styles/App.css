@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: rgb(251, 251, 30);
+}
+
+.signInBox {
+  background-color: red; 
+  color: yellow;  
+  margin-top: 20%;
+  margin-left: 40%;
+  width: 300px;
+  height: 100px;
+  border: 2px solid black;
+}
+
+label {
+  margin: 10px;
+}
