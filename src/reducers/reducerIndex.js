@@ -1,44 +1,49 @@
-// import { Reducers } from 'redux';
 
-const initialState = {
-    token:"",
-    username:"",
-    name:"",
-    messages:[]
+import { REGISTER_SUCCESS, REGISTER_FAIL, REGISTER } from "../actions/action";
+import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN } from "../actions/action";
+
+const initialState = { register: {}, registerResult: "", loginData: {token: "", id: 0, success: false} };
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case REGISTER:
+      return state;
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        register: action.register,
+        registerResult: action.result
+      };
+    case REGISTER_FAIL:
+      return {
+        ...state,
+        registerResult: action.result
+      };
+    // cases below are for the login page
+    case LOGIN_SUCCESS:
+      return {
+        // link to main feed page?
+        ...state,
+        loginData: action.loginData
+      };
+    
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        loginResult: action.result
+      };
+
+    case LOGIN:
+      return {
+        ...state,
+        loginResult: action.result
+      };
+
+    default:
+      return state;
   }
+};
 
-//   reducer will be called in mapDispatchToState
-  export default function Reducer(state = initialState, action) {
-    switch (action.type) {
-      case 'LOGIN_PAGE': {
-  //       return {...state,
-  //         visibilityFilter: action.filter}
-  //       })
-  //     }
-  //     case 'PROFILE_PAGE': {
-  //       return Object.assign({}, state, {
-  //         todos: state.todos.concat({
-  //           id: action.id,
-  //           text: action.text,
-  //           completed: false
-  //         })
-  //       })
-  //     }
-  //     case 'MAIN_PAGE': {
-  //       return Object.assign({}, state, {
-  //         todos: state.todos.map(todo => {
-  //           if (todo.id !== action.id) {
-  //             return todo
-  //           }
-  // ​
-  //           return Object.assign({}, todo, {
-  //             completed: !todo.completed
-  //           })
-  //         })
-  //       })
-      }
-      default:
-        return state
-    }
-  }
+export default reducer;
 
+// with log out button, return everything to initial state.

@@ -1,41 +1,71 @@
-import React from 'react';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { login } from "../actions/action";
+import { Link } from 'react-router-dom';
+// Might need import for the link to RegistrationPage
 
-const state={
-    username: '',
-    password: ''
-}
+class LoginForm extends Component {
+  state = {
+    username: "",
+    password: "",
+  };
 
-class LoginForm extends React.Component {
+  handleCheckUserName = event => {
+    this.setState({
+      username: event.target.value
+    });
+  };
+
+  handleCheckPassword = event => {
+    this.setState({
+      password: event.target.value
+    });
+  };
+
+  handleLogIn = event => {
+    this.props.login({
+      username: this.state.username,
+      password: this.state.password
+    });
+  };
+
   render() {
     return (
-      <div className="loginForm">
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Userame:
-            <input
-              type="text"
-              // value={this.state.value}
-              // onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              // value={this.state.value}
-              // onChange={this.handleChange}
-            />
-          </label>
-          <br />
-          <SignUpButton />
-          {/* might want to get rid of the signupbotton and do the logic here  */}
-        </form>
+      <div className="login-form">
+        <input
+          type="text"
+          onChange={this.handleCheckUserName}
+          required
+          placeholder="Enter username"
+        />
+        <input
+          type="password"
+          onChange={this.handleCheckPassword}
+          required
+          placeholder="Enter Password"
+        />
+        <br />
+        <div>{this.props.result}</div>
+        <Link to='/main'><button onClick={this.handleLogIn}>Login</button></Link>
+        {/* wrap a Link tag around the button.    Link to=/main*/}
+        {/* // we need to form the paths to be similar to the routes from todos3. routes will go in the app.js file. */}
+        <Link to='/userProfile'><button onClick={this.setRedirect}>Sign up!</button></Link>
       </div>
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    result: state.LoginResult
+  };
+};
 
-
-// (connect)mapStateToProps/mapDispatchToProps
-
-export default LoginForm;
+const mapDispatchToProps = dispatch => {
+  return {
+        login: loginData => dispatch(login(loginData))
+      };
+    };
+    export default connect(
+      mapStateToProps,
+      mapDispatchToProps
+    )(LoginForm);
