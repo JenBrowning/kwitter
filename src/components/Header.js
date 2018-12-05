@@ -5,7 +5,7 @@ class Header extends React.Component {
   render() {
     return (
       <div className="header">
-      Kwitter
+      <strong>Kwitter</strong>
       {/* insert icon
      */}
       </div>
