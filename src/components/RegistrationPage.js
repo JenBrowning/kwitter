@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { register } from "./actions";
+import { register } from "../actions/action";
 import { connect } from "react-redux";
+import Header from '../styles/Header.css';
 import LoginForm from "./LoginForm";
 
 class RegistrationPage extends Component {
@@ -33,7 +34,7 @@ class RegistrationPage extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="registrationPage">
         <input
           type="text"
           onChange={this.handleChangeUsername}
@@ -52,10 +53,11 @@ class RegistrationPage extends Component {
           required
           placeholder="Display Name"
         />
+        <br />
         <button onClick={this.handleRegister}>Register</button>
         <div>{this.props.result}</div>
 
-        <LoginForm />
+        {/* <LoginForm /> */}
       </div>
     );
   }
@@ -74,4 +76,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Register);
+)(RegistrationPage);

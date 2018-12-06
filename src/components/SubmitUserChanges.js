@@ -1,4 +1,3 @@
-import "../styles/SubmitUserChangesButton.css";
 import React from "react";
 
 class SubmitUserChangesButton extends React.Component {

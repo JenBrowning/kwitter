@@ -13,4 +13,4 @@ class MessageFeed extends React.Component {
   }
 }
 
-export default App;
+export default MessageFeed;

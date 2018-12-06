@@ -1,0 +1,24 @@
+.head {
+    position: relative;
+    border: 2px solid black;
+    background: pink;
+    height: 100px;
+    text-align: center;
+ }
+ 
+ .kwitterIcon {
+    position: relative;
+    border: 2px solid black;
+    background-image: url("photos/stockIcon.gif");
+    background-size: 75px 75px;
+    border-radius: 50%;
+    height: 75%;
+    width: 75px;
+ }
+ 
+ h1 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    bottom: 65px;
+ }
