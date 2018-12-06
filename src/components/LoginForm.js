@@ -46,10 +46,10 @@ class LoginForm extends Component {
         />
         <br />
         <div>{this.props.result}</div>
-        <Link to='/main'><button onClick={this.handleLogIn}>Login</button></Link>
+        <Link to='/mainFeed'><button onClick={this.handleLogIn}>Login</button></Link>
         {/* wrap a Link tag around the button.    Link to=/main*/}
         {/* // we need to form the paths to be similar to the routes from todos3. routes will go in the app.js file. */}
-        <Link to='/userProfile'><button onClick={this.setRedirect}>Sign up!</button></Link>
+        <Link to='/registration'><button onClick={this.setRedirect}>Sign up!</button></Link>
       </div>
     );
   }

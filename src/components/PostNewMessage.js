@@ -1,12 +1,10 @@
 import "../styles/PostNewMessage.css";
 import React from "react";
-import PostMessageButton from "./PostMessage";
 
 class PostNewMessage extends React.Component {
   render() {
     return (
       <div className="loginPage">
-        {/* <PostList /> */}
         <div className="messageBox">
           <form onSubmit={this.handleSubmit}>
             <label>

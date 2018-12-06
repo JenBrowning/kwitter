@@ -1,58 +1,81 @@
 import "../styles/App.css";
-import React from "react";
-import LoginForm from "./LoginForm";
-import Header from "./Header";
+import React, { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
+
+import Header from "./Header";
+import LoginForm from "./LoginForm";
+import RegistrationPage from "./RegistrationPage";
+import Profile from "./Profile";
+import UserProfileSynopsis from "./UserProfileSynopsis";
+import LogOutButton from "./LogOutButton";
+import PostNewMessage from "./PostNewMessage";
+import MessageFeed from "./MessageFeed";
+import SearchForMessages from "./SearchForMessage";
+import DeleteMessage from "./DeleteMessage";
 
 class App extends React.Component {
   render() {
     return (
       <div className="firstView">
+        <Header />
         <div className="startingPage">
-          <Header />
-          <LoginForm />
+          {/* <Header />
+          <LoginForm /> */}
 
-          {/* <Switch>
+          {<Switch>
             <Route
               exact
               path="/"
               render={props => (
-                <Header />
-                <LoginForm 
-                  I don't think I need anything here. The state here would include username and password./>
-              // )}
+                <React.Fragment>
+                <LoginForm />
+                </React.Fragment>
+               )}
             />
+
+            <Route
+              exact
+              path="/registration"
+              render={props => (
+                <React.Fragment>
+                <Header />
+                <RegistrationPage />
+                </React.Fragment>
+              )}
+            />
+
             <Route
               path={"/userProfile"}
               render={props => (
+                <React.Fragment>
                 <Header />
                 <UserProfileSynopsis />
-                <UploadPhotoButton /> (might change this depending on recommended set up with button component.)
-                <ChangeUserInfo />
+                <Profile />
                 <LogOutButton />
-                <DeleteUserButton />
-              // )}
+                </React.Fragment>
+               )}
             />
             <Route
-              path={"/main"}
+              path={"/mainFeed"}
               render={props => (
-                <Header />
-                <UserProfileSynopsis>
-                <PostNewMessage 
-                  message={this.state.message} />
-                <MessageFeed
+                <React.Fragment>
+                {/* <Header /> */}
+                <UserProfileSynopsis />
+                {/* <PostNewMessage 
+                  message={this.state.message} /> */}
+                {/* <MessageFeed
                   messages={this.state.messages} />
-                <SearchForMessages 
-                  messages={this.state.messages.find(messages => ?)} 
-                  handler link/>
-                <DeleteMessage 
-                  messages={this.state.messages.find(messages => ?)} 
-                  handler link/>
+                <SearchForMessages />
+                  // messages={this.state.messages.find(messages => ?)}  */}
+                  {/* // handler link/> */}
+                {/* <DeleteMessage />
+                  // messages={this.state.messages.find(messages => ?)} 
+                  // handler link/> */}
                 <LogOutButton />
-                />
-              // )}
+                </React.Fragment>
+              )}
             />
-          </Switch> */}
+          </Switch>}
 
           
         </div>

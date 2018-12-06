@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { register } from "./actions";
+import { register } from "../actions/action";
 import { connect } from "react-redux";
-import LoginForm from "./LoginForm";
 
 class RegistrationPage extends Component {
   state = {
@@ -52,10 +51,11 @@ class RegistrationPage extends Component {
           required
           placeholder="Display Name"
         />
+        <br />
         <button onClick={this.handleRegister}>Register</button>
         <div>{this.props.result}</div>
 
-        <LoginForm />
+        {/* <LoginForm /> */}
       </div>
     );
   }
@@ -74,4 +74,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Register);
+)(RegistrationPage);
