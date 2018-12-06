@@ -4,16 +4,17 @@ export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 
 // consts for login
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN = 'LOGIN';
-export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN = "LOGIN";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
+
+//consts for profile
 
 const mapDispatchToProps = dispatch => {
   return {
     register: registerData => dispatch(register(registerData))
   };
 };
-
 
 export const register = registerData => dispatch => {
   // dispatch here before fetch
@@ -57,7 +58,7 @@ export const register = registerData => dispatch => {
 export const login = loginData => dispatch => {
   // dispatch here before fetch
   dispatch({
-    type: LOGIN,
+    type: LOGIN
   });
 
   fetch("https://kwitter-api.herokuapp.com/auth/login", {
@@ -78,14 +79,14 @@ export const login = loginData => dispatch => {
     })
     .then(data => {
       // dispatch here on success --
-      if(data.success === true){
+      if (data.success === true) {
         dispatch({
           type: LOGIN_SUCCESS,
-          loginData: data,
+          loginData: data
           // loginResult: "You're in like Flynn"
         });
       } else {
-        throw "nope."
+        throw "nope.";
       }
     })
     .catch(err => {
@@ -96,4 +97,3 @@ export const login = loginData => dispatch => {
       });
     });
 };
-
