@@ -1,12 +1,14 @@
 import "../styles/UserProfileSynopsis.css";
-import React from 'react';
+import React from "react";
 
 class UserProfileSynopsis extends React.Component {
   render() {
     return (
       <div className="userSynopsis">
-        {/* icon(maybe), display username, avatar, name */}
-        {/* this information should come from the database */}
+        <div placeholder="name goes here" />
+        <div placeholder="username goes here" />
+        <div placeholder="photo goes here" />
+        <button>Update</button>
       </div>
     );
   }
