@@ -7,8 +7,8 @@ body {
 }
 
 .startingPage {
-  background-color: red; 
-  color: yellow;  
+  background-color: red;
+  color: yellow;
   margin-top: 20%;
   margin-left: 40%;
   width: 300px;
@@ -18,4 +18,12 @@ body {
 
 label {
   margin: 10px;
+}
+
+.userProfile {
+  background-color: blue;
+}
+
+.registrationPage {
+  background-color: purple;
 }

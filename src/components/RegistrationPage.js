@@ -33,7 +33,7 @@ class RegistrationPage extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="registrationPage">
         <input
           type="text"
           onChange={this.handleChangeUsername}
