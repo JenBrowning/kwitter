@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from "../actions/action";
 import { Link } from 'react-router-dom';
+// Might need import for the link to RegistrationPage
 
 class LoginForm extends Component {
   state = {
     username: "",
     password: "",
-    displayName: ""
   };
 
   handleCheckUserName = event => {
@@ -29,14 +29,6 @@ class LoginForm extends Component {
     });
   };
 
-  // handleRegister = event => {
-  //   this.props.register({
-  //     username: this.state.username,
-  //     password: this.state.password,
-  //     displayName: this.state.displayName
-  //   });
-  // };
-
   render() {
     return (
       <div className="login-form">
@@ -55,12 +47,9 @@ class LoginForm extends Component {
         <br />
         <div>{this.props.result}</div>
         <Link to='/mainFeed'><button onClick={this.handleLogIn}>Login</button></Link>
-
-        <Link to='/registration'><button onClick={this.handleLogIn}>Sign Up!</button></Link>
-        {/* should this be an anchor tag here with just a link to sign up?   */}
-
         {/* wrap a Link tag around the button.    Link to=/main*/}
         {/* // we need to form the paths to be similar to the routes from todos3. routes will go in the app.js file. */}
+        <Link to='/registration'><button onClick={this.setRedirect}>Sign up!</button></Link>
       </div>
     );
   }

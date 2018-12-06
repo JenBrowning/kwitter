@@ -23,7 +23,7 @@ class Profile extends React.Component {
             {/* <UploadPhoto /> */}
             {/* may be able to use the component above to update account with a new avatar photo.  Might need to make adjustment to UploadPhoto to accommodate this. */}
             <br />
-            <SubmitUserChanges />
+            {/* <SubmitUserChanges /> */}
           </form>
         </div>
       </div>

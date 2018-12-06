@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { register } from "../actions/action";
 import { connect } from "react-redux";
-import Header from '../styles/Header.css';
-import LoginForm from "./LoginForm";
 
 class RegistrationPage extends Component {
   state = {

@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./Header";
 import LoginForm from "./LoginForm";
 import RegistrationPage from "./RegistrationPage";
-import Profile from "./ChangeUserInfo";
+import Profile from "./Profile";
 import UserProfileSynopsis from "./UserProfileSynopsis";
 import LogOutButton from "./LogOutButton";
 import PostNewMessage from "./PostNewMessage";
@@ -71,7 +71,7 @@ class App extends React.Component {
                 {/* <DeleteMessage />
                   // messages={this.state.messages.find(messages => ?)} 
                   // handler link/> */}
-                {/* <LogOutButton /> */}
+                <LogOutButton />
                 </React.Fragment>
               )}
             />
