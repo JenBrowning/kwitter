@@ -1,16 +1,17 @@
 import "../styles/mainFeedNavButton.css";
 import React from "react";
+import { Link } from 'react-router-dom';
 
-class mainFeedNavButton extends React.Component {
+class MainFeedNavButton extends React.Component {
   render() {
     return (
       // button below takes user to the main page
       // 
-      <button className="mainFeedNavButton"
-        // onClick={this.props.toLoginPage}
-      >Main Page</button>
+      <Link to='/mainFeed'><button className="mainFeedNavButton"
+        onClick={this.setRedirect}
+      >Main Page</button></Link>
     );
   }
 }
 
-export default mainFeedNavButton;
+export default MainFeedNavButton;
