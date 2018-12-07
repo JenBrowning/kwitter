@@ -1,3 +1,5 @@
+import { push } from "connected-react-router";
+
 // consts for registration
 export const REGISTER = "REGISTER";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
@@ -8,7 +10,8 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN = "LOGIN";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
-//consts for profile
+
+//consts for profile.  push onto the history stack (to hit back a page)
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -85,6 +88,8 @@ export const login = loginData => dispatch => {
           loginData: data
           // loginResult: "You're in like Flynn"
         });
+        // logic for routing
+        dispatch(push("/mainFeed"));
       } else {
         throw "nope.";
       }
