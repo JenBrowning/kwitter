@@ -15,8 +15,14 @@ class Profile extends React.Component {
               Enter New Userame Here:
               <input
                 type="text"
-                // value={this.state.value}
               />
+              
+              <input
+                type="text"
+              />
+              <button>submit user changes</button>
+              <button>delete user</button>
+              <button>upload photo</button>
             </label>
             <br />
 
