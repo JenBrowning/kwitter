@@ -1,9 +1,10 @@
 
 import { REGISTER_SUCCESS, REGISTER_FAIL, REGISTER } from "../actions/action";
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN } from "../actions/action";
-import { DELETE_USER_SUCCESS, DELETE_USER_FAILURE, DELETE_USER } from "..actions/action";
+import { DELETE_USER_SUCCESS, DELETE_USER_FAILURE, DELETE_USER } from "../actions/action";
+import { GET_MESSAGES } from "../actions/action";
 
-const initialState = { register: {}, registerResult: "", loginData: {token: "", id: 0, success: false} };
+const initialState = { register: {}, registerResult: "", loginData: {token: "", id: 0, success: false}, messages: [], };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -55,6 +56,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
       };
+
+      case GET_MESSAGES:
+      return {
+        ...state,
+        messages: action.messages
+      }
     
     default:
       return state;

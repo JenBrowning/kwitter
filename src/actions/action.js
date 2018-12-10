@@ -198,14 +198,14 @@ export const deleteUser = () => (dispatch, getState) => {
 export const fetchMessages = () => (dispatch) => {
   fetch("https://kwitter-api.herokuapp.com/messages?limit=10000")
     .then(response => response.json())
-    .then(messages => {
-      dispatch(getMessages(messages))
+    .then(data => {
+      dispatch(getMessages(data.messages))
     })
 }
 
 export const getMessages = (messages) => {
   return {
       type: GET_MESSAGES,
-      payload: messages
+      messages
   }
 }
