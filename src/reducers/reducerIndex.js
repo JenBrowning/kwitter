@@ -1,7 +1,7 @@
 
 import { REGISTER_SUCCESS, REGISTER_FAIL, REGISTER } from "../actions/action";
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN } from "../actions/action";
-import { DELETE_USER_SUCCESS, DELETE_USER_FAILURE, DELETE_USER } from "..actions/action";
+import { DELETE_USER_SUCCESS, DELETE_USER_FAILURE, DELETE_USER } from "../actions/action";
 import { UPDATE_USER, UPDATE_USER_SUCCESS, UPDATE_USER_FAILURE } from "../actions/action";
 
 const initialState = { register: {}, registerResult: "", loginData: {token: "", id: 0, success: false}, loginResult: "", displayName: "", updateResult: "" , deleteUserResult: "" };
