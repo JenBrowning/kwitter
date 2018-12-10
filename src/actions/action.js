@@ -187,7 +187,7 @@ export const deleteUser = () => (dispatch, getState) => {
     .catch(err => {
       dispatch({
         type: DELETE_USER_FAILURE,
-        updateResult: "Permission denied"
+        deleteUserResult: "Permission denied"
       });
     });
 };

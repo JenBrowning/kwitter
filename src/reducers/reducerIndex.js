@@ -3,7 +3,7 @@ import { REGISTER_SUCCESS, REGISTER_FAIL, REGISTER } from "../actions/action";
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN } from "../actions/action";
 import { DELETE_USER_SUCCESS, DELETE_USER_FAILURE, DELETE_USER } from "..actions/action";
 
-const initialState = { register: {}, registerResult: "", loginData: {token: "", id: 0, success: false} };
+const initialState = { register: {}, registerResult: "", loginData: {token: "", id: 0, success: false}, loginResult: "", deleteUserResult: "" };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -43,12 +43,13 @@ const reducer = (state = initialState, action) => {
     case DELETE_USER_SUCCESS:
       return {
         ...state,
-        register: {}, registerResult: "", loginData: {token: "", id: 0, success: false}
+        ...initialState
       };
     
     case DELETE_USER_FAILURE:
       return {
         ...state,
+        deleteUserResult: action.deleteUserResult
       };
 
     case DELETE_USER:
