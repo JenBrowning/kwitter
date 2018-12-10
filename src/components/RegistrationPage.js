@@ -3,6 +3,8 @@ import { register } from "../actions/action";
 import { connect } from "react-redux";
 import "../styles/RegistrationPage.css";
 
+// let Center = require("react-center");
+
 class RegistrationPage extends Component {
   state = {
     username: "",
@@ -61,10 +63,11 @@ class RegistrationPage extends Component {
             />
           </fieldset>
         </form>
-        <button className="registrationbutton" onClick={this.handleRegister}>
-          Register
-        </button>
-        <div>{this.props.result}</div>
+
+        <div className="button">
+          <button onClick={this.handleRegister}>Register</button>
+          <div>{this.props.result}</div>
+        </div>
       </div>
     );
   }
