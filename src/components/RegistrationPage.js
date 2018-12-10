@@ -3,6 +3,8 @@ import { register } from "../actions/action";
 import { connect } from "react-redux";
 import "../styles/RegistrationPage.css";
 
+// let Center = require("react-center");
+
 class RegistrationPage extends Component {
   state = {
     username: "",
@@ -33,42 +35,41 @@ class RegistrationPage extends Component {
   };
   render() {
     return (
-      <React.Fragment>
-        <div className="entireform">
-          <form>
-            <legend>Register Below</legend>
-            <fieldset>
-              <input
-                type="text"
-                onChange={this.handleChangeUsername}
-                required
-                placeholder="Username"
-              />
-            </fieldset>
-            <fieldset>
-              <input
-                type="password"
-                onChange={this.handleChangePassword}
-                required
-                placeholder="Password"
-              />
-            </fieldset>
-            <fieldset>
-              <input
-                type="text"
-                onChange={this.handleChangeDisplayName}
-                required
-                placeholder="Display Name"
-              />
-            </fieldset>
-            <button className="registrationbutton">
+      <div className="entireform">
+        <form>
+          <legend>Register Below</legend>
+          <fieldset>
+            <input
+              type="text"
+              onChange={this.handleChangeUsername}
+              required
+              placeholder="Username"
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              type="password"
+              onChange={this.handleChangePassword}
+              required
+              placeholder="Password"
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              type="text"
+              onChange={this.handleChangeDisplayName}
+              required
+              placeholder="Display Name"
+            />
+          </fieldset>
+        </form>
+      <div className="button">
+       <button>
               onClick={this.handleRegister}
               required placeholder="Register"
-            </button>
-          </form>
-        </div>
-      </React.Fragment>
-
+        </button>
+      </div>
+      </div>
     );
   }
 }

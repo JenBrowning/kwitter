@@ -14,20 +14,41 @@ body {
   border: 2px solid black;
 } */
 .entireform {
-  text-align: center;
-  width: 500px;
+  margin: auto;
 }
 
-form {
-  vertical-align: center;
+fieldset {
+  top: 100px;
+  margin: auto;
+  width: 200px;
 }
+
+legend {
+  text-align: center;
+  font-size: 25px;
+  font-family: fantasy;
+  margin: 30px;
+}
+
+/* form {
+} */
 input {
+  margin: auto;
   text-align: center;
   width: 400px;
   height: 30px;
   bottom: 200px;
 }
-.registrationbutton {
-  width: 150px;
-  height: 40px;
+
+.button {
+  text-align: center;
+  margin: 0 auto;
+  width: 30%;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  color: aliceblue;
+  /* background-color: #d6a844; */
+  width: 100px;
+  height: 30px;
 }
