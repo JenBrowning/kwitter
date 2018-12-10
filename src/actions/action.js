@@ -1,3 +1,5 @@
+import { push } from "connected-react-router";
+
 // consts for registration
 export const REGISTER = "REGISTER";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
@@ -8,10 +10,19 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN = "LOGIN";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
-export const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS'
-export const DELETE_USER_FAILURE = "DELETE_USER_FAILURE"
+// const for update user
+export const UPDATE_USER = "UPDATE_USER";
+export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
+export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
 
-//consts for profile
+// const for delete user
+export const DELETE_USER = "DELETE_USER";
+export const DELETE_USER_SUCCESS = "DELETE_USER_SUCCESS";
+export const DELETE_USER_FAILURE = "DELETE_USER_FAILURE";
+
+
+
+//consts for profile.  push onto the history stack (to hit back a page)
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -85,9 +96,11 @@ export const login = loginData => dispatch => {
       if (data.success === true) {
         dispatch({
           type: LOGIN_SUCCESS,
-          loginData: data
-          // loginResult: "You're in like Flynn"
+          loginData: data,
+        
         });
+        // logic for routing
+        dispatch(push("/mainFeed"));
       } else {
         throw "nope.";
       }
@@ -101,25 +114,80 @@ export const login = loginData => dispatch => {
     });
 };
 
+// the newUserData is only for the text boxes.  the image will be in a separate endpoint.
+
+// newUserData is a reference to the body or value being passed in (component information which is responsible for grabbing data out of input boxes and sending it to the action creator.)
+export const updateUser = newUserData => (dispatch, getState) => {
+  const token = getState().loginData.token;
+  dispatch({
+    type: UPDATE_USER
+  });
+
+  fetch("https://kwitter-api.herokuapp.com/users", {
+    method: "PATCH",
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newUserData)
+  })
+    .then(res => {
+      if (!res.ok) {
+        res.json().then(err => {
+          throw err;
+        });
+      }
+
+      return res.json();
+    })
+    .then(data => {
+      // dispatch here on success --
+      dispatch({
+        type: UPDATE_USER_SUCCESS,
+        displayName: data.user.displayName
+      });
+      // logic for routing when dealing with asych functions. 
+      dispatch(push("/mainFeed"));
+    })
+    .catch(err => {
+      // dispatch here on fail --
+      dispatch({
+        type: UPDATE_USER_FAILURE,
+        updateResult: "no one likes you"
+      });
+    });
+};
+
 export const deleteUser = () => (dispatch, getState) => {
-  // const token = (Put info here);
-  const header = {
+  const token = getState().loginData.token;
+  dispatch({
+    type: DELETE_USER
+  });
+
+  fetch("https://kwitter-api.herokuapp.com/users", {
     method: "DELETE",
     headers: {
-      Authorization: "Bearer " + token
+      Authorization: "Bearer " + token,
     }
-  }
-  fetch("https://kwitter-api.herokuapp.com/users")
-  .then(res => res.json())
-  .then(isDeleted => {
-    dispatch(push("/"))
-  }) else {
-    throw err;
-  }
-}
-
-export const userDeletedSuccess = () => {
-  return {
-    type:  DELETE_USER_SUCCESS
-  }
-}
+  })
+    .then(res => {
+      if (!res.ok) {
+        res.json().then(err => {
+          throw err;
+        });
+      }
+      return res.json();
+    })
+    .then(data => {
+      dispatch({
+        type: DELETE_USER_SUCCESS,
+      });
+      dispatch(push("/"));
+    })
+    .catch(err => {
+      dispatch({
+        type: DELETE_USER_FAILURE,
+        updateResult: "Permission denied"
+      });
+    });
+};
