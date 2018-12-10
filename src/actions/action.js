@@ -21,7 +21,6 @@ export const DELETE_USER_SUCCESS = "DELETE_USER_SUCCESS";
 export const DELETE_USER_FAILURE = "DELETE_USER_FAILURE";
 
 
-
 //consts for profile.  push onto the history stack (to hit back a page)
 
 const mapDispatchToProps = dispatch => {
