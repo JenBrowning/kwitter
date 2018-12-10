@@ -20,6 +20,9 @@ export const DELETE_USER = "DELETE_USER";
 export const DELETE_USER_SUCCESS = "DELETE_USER_SUCCESS";
 export const DELETE_USER_FAILURE = "DELETE_USER_FAILURE";
 
+//const for messages
+export const GET_MESSAGES = "GET_MESSAGES";
+
 
 
 //consts for profile.  push onto the history stack (to hit back a page)
@@ -191,3 +194,18 @@ export const deleteUser = () => (dispatch, getState) => {
       });
     });
 };
+
+export const fetchMessages = () => (dispatch) => {
+  fetch("https://kwitter-api.herokuapp.com/messages?limit=10000")
+    .then(response => response.json())
+    .then(messages => {
+      dispatch(getMessages(messages))
+    })
+}
+
+export const getMessages = (messages) => {
+  return {
+      type: GET_MESSAGES,
+      payload: messages
+  }
+}
