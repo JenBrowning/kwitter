@@ -33,41 +33,39 @@ class RegistrationPage extends Component {
   };
   render() {
     return (
-      <React.Fragment>
-        <div className="entireform">
-          <form>
-            <legend>Register Below</legend>
-            <fieldset>
-              <input
-                type="text"
-                onChange={this.handleChangeUsername}
-                required
-                placeholder="Username"
-              />
-            </fieldset>
-            <fieldset>
-              <input
-                type="password"
-                onChange={this.handleChangePassword}
-                required
-                placeholder="Password"
-              />
-            </fieldset>
-            <fieldset>
-              <input
-                type="text"
-                onChange={this.handleChangeDisplayName}
-                required
-                placeholder="Display Name"
-              />
-            </fieldset>
-            <button className="registrationbutton">
-              onChange={this.handleChangeSubmit}
-              required placeholder="Register"
-            </button>
-          </form>
-        </div>
-      </React.Fragment>
+      <div className="entireform">
+        <form>
+          <legend>Register Below</legend>
+          <fieldset>
+            <input
+              type="text"
+              onChange={this.handleChangeUsername}
+              required
+              placeholder="Username"
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              type="password"
+              onChange={this.handleChangePassword}
+              required
+              placeholder="Password"
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              type="text"
+              onChange={this.handleChangeDisplayName}
+              required
+              placeholder="Display Name"
+            />
+          </fieldset>
+        </form>
+        <button className="registrationbutton" onClick={this.handleRegister}>
+          Register
+        </button>
+        <div>{this.props.result}</div>
+      </div>
     );
   }
 }
