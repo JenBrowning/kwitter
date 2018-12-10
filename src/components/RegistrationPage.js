@@ -68,6 +68,7 @@ class RegistrationPage extends Component {
           </form>
         </div>
       </React.Fragment>
+
     );
   }
 }

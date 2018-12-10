@@ -15,19 +15,18 @@
 
 // export default Header;
 
-
 import "../styles/Header.css";
-import React from 'react';
+import React from "react";
 
 class Header extends React.Component {
- render() {
-   return (
-     <div className="head">
-     <div className="kwitterIcon"></div>
-     <h1>KWITTER</h1>
-     </div>
-   );
- }
+  render() {
+    return (
+      <div className="head">
+        <div className="kwitterIcon" />
+        <h1>KWITTER</h1>
+      </div>
+    );
+  }
 }
 
 export default Header;
