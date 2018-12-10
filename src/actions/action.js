@@ -8,6 +8,9 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN = "LOGIN";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
+export const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS'
+export const DELETE_USER_FAILURE = "DELETE_USER_FAILURE"
+
 //consts for profile
 
 const mapDispatchToProps = dispatch => {
@@ -97,3 +100,26 @@ export const login = loginData => dispatch => {
       });
     });
 };
+
+export const deleteUser = () => (dispatch, getState) => {
+  // const token = (Put info here);
+  const header = {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + token
+    }
+  }
+  fetch("https://kwitter-api.herokuapp.com/users")
+  .then(res => res.json())
+  .then(isDeleted => {
+    dispatch(push("/"))
+  }) else {
+    throw err;
+  }
+}
+
+export const userDeletedSuccess = () => {
+  return {
+    type:  DELETE_USER_SUCCESS
+  }
+}
