@@ -8,6 +8,7 @@ class Profile extends React.Component {
     username: "",
     password: "",
     displayName: "",
+    token: ""
     // image: ?  check component library for specialized one or an html img tag (<img src="/users/idNO/picture">)
   };
 

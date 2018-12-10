@@ -44,7 +44,7 @@ label {
  }
  
  .userProfile {
-  background-color: blue;
+  background-color: rgb(8, 163, 85);
  }
  
  .registrationPage {
@@ -54,5 +54,5 @@ label {
  .userSynopsis{
    background-color: cadetblue;
    color: white;
-   /* float: left; */
+   float: left;
  }

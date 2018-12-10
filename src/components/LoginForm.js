@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from "../actions/action";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 // Might need import for the link to RegistrationPage
 
 class LoginForm extends Component {
   state = {
     username: "",
-    password: "",
+    password: ""
   };
 
   handleCheckUserName = event => {
@@ -47,7 +47,10 @@ class LoginForm extends Component {
         <br />
         <div>{this.props.result}</div>
         <button onClick={this.handleLogIn}>Login</button>
-        <Link to='/registration'><button onClick={this.setRedirect}>Sign up!</button></Link>
+
+        <Link to="/registration">
+          <button onClick={this.setRedirect}>New Users Sign up Here!</button>
+        </Link>
       </div>
     );
   }
@@ -60,10 +63,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-        login: loginData => dispatch(login(loginData))
-      };
-    };
-    export default connect(
-      mapStateToProps,
-      mapDispatchToProps
-    )(LoginForm);
+    login: loginData => dispatch(login(loginData))
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginForm);

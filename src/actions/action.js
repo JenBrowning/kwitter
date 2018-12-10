@@ -90,7 +90,8 @@ export const login = loginData => dispatch => {
       if (data.success === true) {
         dispatch({
           type: LOGIN_SUCCESS,
-          loginData: data
+          loginData: data,
+        
         });
         // logic for routing
         dispatch(push("/mainFeed"));
@@ -109,6 +110,7 @@ export const login = loginData => dispatch => {
 
 // the newUserData is only for the text boxes.  the image will be in a separate endpoint.
 
+// newUserData is a reference to the body or value being passed in (component information which is responsible for grabbing data out of input boxes and sending it to the action creator.)
 export const updateUser = newUserData => (dispatch, getState) => {
   const token = getState().loginData.token;
   dispatch({
@@ -138,8 +140,8 @@ export const updateUser = newUserData => (dispatch, getState) => {
         type: UPDATE_USER_SUCCESS,
         displayName: data.user.displayName
       });
-      // logic for routing
-      dispatch(push("/userProfile"));
+      // logic for routing when dealing with asych functions. 
+      dispatch(push("/mainFeed"));
     })
     .catch(err => {
       // dispatch here on fail --

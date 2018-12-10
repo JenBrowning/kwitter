@@ -12,6 +12,7 @@ import PostNewMessage from "./PostNewMessage";
 import MessageFeed from "./MessageFeed";
 import SearchForMessages from "./SearchForMessage";
 import DeleteMessage from "./DeleteMessage";
+import { UPDATE_USER, updateUser } from "../actions/action";
 
 class App extends React.Component {
   render() {
@@ -29,6 +30,7 @@ class App extends React.Component {
               render={props => (
                 <React.Fragment>
                 <LoginForm />
+        
                 </React.Fragment>
                )}
             />
@@ -49,7 +51,7 @@ class App extends React.Component {
               render={props => (
                 <React.Fragment>
                 <Header />
-                <UserProfileSynopsis />
+                {/* <UserProfileSynopsis /> */}
                 <Profile />
                 <LogOutButton />
                 </React.Fragment>
@@ -61,6 +63,7 @@ class App extends React.Component {
                 <React.Fragment>
                 {/* <Header /> */}
                 <UserProfileSynopsis />
+                <Profile />
                 {/* <PostNewMessage 
                   message={this.state.message} /> */}
                 {/* <MessageFeed

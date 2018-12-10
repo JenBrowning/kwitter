@@ -8,14 +8,17 @@ const initialState = { register: {}, registerResult: "", loginData: {token: "", 
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+     // cases below are for the registering
     case REGISTER:
       return state;
+
     case REGISTER_SUCCESS:
       return {
         ...state,
         register: action.register,
         registerResult: action.result
       };
+      
     case REGISTER_FAIL:
       return {
         ...state,
@@ -40,6 +43,7 @@ const reducer = (state = initialState, action) => {
         loginResult: action.result
       };
 
+       // cases below are for updating the user's info
     case UPDATE_USER:
       return {
         ...state,
