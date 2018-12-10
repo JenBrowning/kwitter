@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { register } from "../actions/action";
 import { connect } from "react-redux";
+import "../styles/RegistrationPage.css";
+
+// let Center = require("react-center");
 
 class RegistrationPage extends Component {
   state = {
@@ -32,30 +35,40 @@ class RegistrationPage extends Component {
   };
   render() {
     return (
-      <div className="registrationPage">
-        <input
-          type="text"
-          onChange={this.handleChangeUsername}
-          required
-          placeholder="Username"
-        />
-        <input
-          type="password"
-          onChange={this.handleChangePassword}
-          required
-          placeholder="Password"
-        />
-        <input
-          type="text"
-          onChange={this.handleChangeDisplayName}
-          required
-          placeholder="Display Name"
-        />
-        <br />
-        <button onClick={this.handleRegister}>Register</button>
-        <div>{this.props.result}</div>
-
-        {/* <LoginForm /> */}
+      <div className="entireform">
+        <form>
+          <legend>Register Below</legend>
+          <fieldset>
+            <input
+              type="text"
+              onChange={this.handleChangeUsername}
+              required
+              placeholder="Username"
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              type="password"
+              onChange={this.handleChangePassword}
+              required
+              placeholder="Password"
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              type="text"
+              onChange={this.handleChangeDisplayName}
+              required
+              placeholder="Display Name"
+            />
+          </fieldset>
+        </form>
+      <div className="button">
+       <button>
+              onClick={this.handleRegister}
+              required placeholder="Register"
+        </button>
+      </div>
       </div>
     );
   }

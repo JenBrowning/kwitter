@@ -1,18 +1,54 @@
-.PopUpBox {
-    text-align: center;
-  }
-  
-  body {
-    background-color: rgb(251, 251, 30);
-  }
-  
-  .signUpBox {
-    background-color: red; 
-    color: yellow;  
-    margin-top: 20%;
-    margin-left: 40%;
-    width: 300px;
-    height: 100px;
-    border: 2px solid black;
-  }
-  
+/* s */
+
+body {
+  background-color: lightblue;
+}
+/* 
+.signUpBox {
+  background-color: white;
+  color: black;
+  margin-top: 20%;
+  margin-left: 40%;
+  width: 300px;
+  height: 100px;
+  border: 2px solid black;
+} */
+.entireform {
+  margin: auto;
+}
+
+fieldset {
+  top: 100px;
+  margin: auto;
+  width: 200px;
+}
+
+legend {
+  text-align: center;
+  font-size: 25px;
+  font-family: fantasy;
+  margin: 30px;
+}
+
+/* form {
+} */
+input {
+  margin: auto;
+  text-align: center;
+  width: 400px;
+  height: 30px;
+  bottom: 200px;
+}
+
+.button {
+  text-align: center;
+  margin: 0 auto;
+  width: 30%;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  color: aliceblue;
+  /* background-color: #d6a844; */
+  width: 100px;
+  height: 30px;
+}

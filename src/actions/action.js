@@ -24,7 +24,6 @@ export const DELETE_USER_FAILURE = "DELETE_USER_FAILURE";
 export const GET_MESSAGES = "GET_MESSAGES";
 
 
-
 //consts for profile.  push onto the history stack (to hit back a page)
 
 const mapDispatchToProps = dispatch => {
@@ -190,7 +189,7 @@ export const deleteUser = () => (dispatch, getState) => {
     .catch(err => {
       dispatch({
         type: DELETE_USER_FAILURE,
-        updateResult: "Permission denied"
+        deleteUserResult: "Permission denied"
       });
     });
 };
