@@ -14,6 +14,12 @@ import SearchForMessages from "./SearchForMessage";
 import DeleteMessage from "./DeleteMessage";
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      width: window.innerWidth
+    };
+  }
   render() {
     return (
       <div className="firstView">
@@ -22,62 +28,62 @@ class App extends React.Component {
           {/* <Header />
           <LoginForm /> */}
 
-          {<Switch>
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <React.Fragment>
-                <LoginForm />
-                </React.Fragment>
-               )}
-            />
+          {
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <React.Fragment>
+                    <LoginForm />
+                  </React.Fragment>
+                )}
+              />
 
-            <Route
-              exact
-              path="/registration"
-              render={props => (
-                <React.Fragment>
-                <Header />
-                <RegistrationPage />
-                </React.Fragment>
-              )}
-            />
+              <Route
+                // exact
+                path="/registration"
+                render={props => (
+                  <React.Fragment>
+                    {/* <Header /> */}
+                    <RegistrationPage />
+                  </React.Fragment>
+                )}
+              />
 
-            <Route
-              path={"/userProfile"}
-              render={props => (
-                <React.Fragment>
-                <Header />
-                <UserProfileSynopsis />
-                <Profile />
-                <LogOutButton />
-                </React.Fragment>
-               )}
-            />
-            <Route
-              path={"/mainFeed"}
-              render={props => (
-                <React.Fragment>
-                {/* <Header /> */}
-                <UserProfileSynopsis />
-                {/* <PostNewMessage 
+              <Route
+                path={"/userProfile"}
+                render={props => (
+                  <React.Fragment>
+                    <Header />
+                    <UserProfileSynopsis />
+                    <Profile />
+                    <LogOutButton />
+                  </React.Fragment>
+                )}
+              />
+              <Route
+                path={"/mainFeed"}
+                render={props => (
+                  <React.Fragment>
+                    {/* <Header /> */}
+                    <UserProfileSynopsis />
+                    {/* <PostNewMessage 
                   message={this.state.message} /> */}
-                {/* <MessageFeed
+                    {/* <MessageFeed
                   messages={this.state.messages} />
                 <SearchForMessages />
                   // messages={this.state.messages.find(messages => ?)}  */}
-                  {/* // handler link/> */}
-                {/* <DeleteMessage />
+                    {/* // handler link/> */}
+                    {/* <DeleteMessage />
                   // messages={this.state.messages.find(messages => ?)} 
                   // handler link/> */}
-                <LogOutButton />
-                </React.Fragment>
-              )}
-            />
-          </Switch>}
-
-          
+                    <LogOutButton />
+                  </React.Fragment>
+                )}
+              />
+            </Switch>
+          }
         </div>
       </div>
     );

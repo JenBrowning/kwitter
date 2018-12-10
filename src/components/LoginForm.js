@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from "../actions/action";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 // Might need import for the link to RegistrationPage
 
 class LoginForm extends Component {
   state = {
     username: "",
-    password: "",
+    password: ""
   };
 
   handleCheckUserName = event => {
@@ -31,26 +31,32 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div className="login-form">
-        <input
-          type="text"
-          onChange={this.handleCheckUserName}
-          required
-          placeholder="Enter username"
-        />
-        <input
-          type="password"
-          onChange={this.handleCheckPassword}
-          required
-          placeholder="Enter Password"
-        />
-        <br />
-        <div>{this.props.result}</div>
-        <Link to='/mainFeed'><button onClick={this.handleLogIn}>Login</button></Link>
-        {/* wrap a Link tag around the button.    Link to=/main*/}
-        {/* // we need to form the paths to be similar to the routes from todos3. routes will go in the app.js file. */}
-        <Link to='/registration'><button onClick={this.setRedirect}>Sign up!</button></Link>
-      </div>
+      <React.Fragment>
+        <div className="login-form">
+          <input
+            type="text"
+            onChange={this.handleCheckUserName}
+            required
+            placeholder="Enter username"
+          />
+          <input
+            type="password"
+            onChange={this.handleCheckPassword}
+            required
+            placeholder="Enter Password"
+          />
+          <br />
+          <div>{this.props.result}</div>
+          <Link to="/mainFeed">
+            <button onClick={this.handleLogIn}>Login</button>
+          </Link>
+          {/* wrap a Link tag around the button.    Link to=/main*/}
+          {/* // we need to form the paths to be similar to the routes from todos3. routes will go in the app.js file. */}
+          <Link to="/registration">
+            <button onClick={this.setRedirect}>Sign up!</button>
+          </Link>
+        </div>
+      </React.Fragment>
     );
   }
 }
@@ -62,10 +68,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-        login: loginData => dispatch(login(loginData))
-      };
-    };
-    export default connect(
-      mapStateToProps,
-      mapDispatchToProps
-    )(LoginForm);
+    login: loginData => dispatch(login(loginData))
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginForm);
