@@ -31,32 +31,27 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <div className="login-form">
-          <input
-            type="text"
-            onChange={this.handleCheckUserName}
-            required
-            placeholder="Enter username"
-          />
-          <input
-            type="password"
-            onChange={this.handleCheckPassword}
-            required
-            placeholder="Enter Password"
-          />
-          <br />
-          <div>{this.props.result}</div>
-          <Link to="/mainFeed">
-            <button onClick={this.handleLogIn}>Login</button>
-          </Link>
-          {/* wrap a Link tag around the button.    Link to=/main*/}
-          {/* // we need to form the paths to be similar to the routes from todos3. routes will go in the app.js file. */}
-          <Link to="/registration">
-            <button onClick={this.setRedirect}>Sign up!</button>
-          </Link>
-        </div>
-      </React.Fragment>
+      <div className="login-form">
+        <input
+          type="text"
+          onChange={this.handleCheckUserName}
+          required
+          placeholder="Enter username"
+        />
+        <input
+          type="password"
+          onChange={this.handleCheckPassword}
+          required
+          placeholder="Enter Password"
+        />
+        <br />
+        <div>{this.props.result}</div>
+        <button onClick={this.handleLogIn}>Login</button>
+
+        <Link to="/registration">
+          <button onClick={this.setRedirect}>New Users Sign up Here!</button>
+        </Link>
+      </div>
     );
   }
 }
