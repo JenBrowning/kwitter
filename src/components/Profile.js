@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { register, updateUser } from "../actions/action";
 import AHMessageFeed from "./AHMessageFeed.js";
+import DeleteUserButton from "./deleteUserButton.js"
+import MainFeedNavButton from "./MainFeedNavButton.js"
 
 //this was class changeuserprofile
 class Profile extends React.Component {
@@ -70,8 +72,10 @@ class Profile extends React.Component {
           {/* Add Clint's photo button after QA */}
           <br />
           <AHMessageFeed />
-          <button>delete user</button>
-          {/*   Clint is working on this feature. User delete Currently Authenticated endpoint? */}
+          <MainFeedNavButton />
+          <button>delete user
+            <DeleteUserButton />
+          </button>
         </div>
       </div>
     );
