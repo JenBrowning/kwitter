@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { fetchMessages } from "../actions/action";
 
-class MessageFeed extends React.Component {
+export class MessageFeed extends React.Component {
   componentDidMount(){
     this.props.fetchMessages()
   }

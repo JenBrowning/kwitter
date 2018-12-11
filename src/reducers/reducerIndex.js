@@ -4,8 +4,9 @@ import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN } from "../actions/action";
 import { DELETE_USER_SUCCESS, DELETE_USER_FAILURE, DELETE_USER } from "../actions/action";
 import { GET_MESSAGES } from "../actions/action";
 import { UPDATE_USER, UPDATE_USER_SUCCESS, UPDATE_USER_FAILURE } from "../actions/action";
+import { GET_USER_MESSAGES } from "../actions/action";
 
-const initialState = { register: {}, registerResult: "", loginData: {token: "", id: 0, success: false}, loginResult: "", displayName: "", updateResult: "" , deleteUserResult: "", messages: [] };
+const initialState = { register: {}, registerResult: "", loginData: {token: "", id: 0, success: false}, loginResult: "", displayName: "", updateResult: "" , deleteUserResult: "", messages: [], AHMessages: [] };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -84,6 +85,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         updateResult: action.updateResult
       };
+
+      case GET_USER_MESSAGES:
+      return {
+        ...state,
+        AHMessages: action.messages
+      }
 
     default:
       return state;
