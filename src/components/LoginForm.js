@@ -32,18 +32,24 @@ class LoginForm extends Component {
   render() {
     return (
       <div className="login-form">
-        <input
-          type="text"
-          onChange={this.handleCheckUserName}
-          required
-          placeholder="Enter username"
-        />
-        <input
-          type="password"
-          onChange={this.handleCheckPassword}
-          required
-          placeholder="Enter Password"
-        />
+        <form>
+          <fieldset>
+            <input
+              type="text"
+              onChange={this.handleCheckUserName}
+              required
+              placeholder="Enter username"
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              type="password"
+              onChange={this.handleCheckPassword}
+              required
+              placeholder="Enter Password"
+            />
+          </fieldset>
+        </form>
         <br />
         <div>{this.props.result}</div>
         <button onClick={this.handleLogIn}>Login</button>

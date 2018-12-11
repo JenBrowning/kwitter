@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { register, updateUser } from "../actions/action";
+import { Grid } from "semantic-ui-react";
 
+import "../styles/Profile.css";
 //this was class changeuserprofile
 class Profile extends React.Component {
   state = {
@@ -31,7 +33,7 @@ class Profile extends React.Component {
     // if(the two password boxes are equal (characters and casing), then update the user)
     this.props.updateUser({
       password: this.state.password,
-      displayName: this.state.displayName,
+      displayName: this.state.displayName
       // image: this.state.image
       // about: this.state.about  this is another bit of information about our user that we can access/display in the user profile.
     });
@@ -39,42 +41,98 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <div className="updateUserInfo">
-        <div className="userProfile">
-          Enter New Display Here:
-          <br />
-          <input
-            type="text"
-            onChange={this.handleChangeUpdateDisplayName}
-            placeholder="New Display Name"
-          />
-          <br />
-          Enter New Password:
-          <br />
-          <input
-            type="password"
-            onChange={this.handleChangeUpdatePassword}
-            placeholder="New Password"
-          />
-          <br />
-          Confirm New Password:
-          <br />
-          <input type="password" />
-          <br />
-          <button onClick={this.handleUpdate}>Submit changes</button>
-          {/* This is a dummy button; waiting for submit changes language. no authorization token should be necessary */}
-          <br />
-          Uploaded Photo Will be added here.
-          <button>upload photo</button>
-          {/* Add Clint's photo button after QA */}
-          <br />
-          <button>delete user</button>
-          {/*   Clint is working on this feature. User delete Currently Authenticated endpoint? */}
-        </div>
-      </div>
+      <Grid className="grid">
+        <Grid.Column className="gridcolumn1" width={3}>
+          <p>Grids Suck</p>
+        </Grid.Column>
+        <Grid.Column className="gridcolumn2" width={7}>
+          <p>birfday</p>
+        </Grid.Column>
+        <Grid.Column className="gridcolumn3" width={3}>
+          <p>Coding sucks</p>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
+// <Container className="container">
+//   <Grid className="gridprofilepage">
+//     <Grid.Row className="column1">
+//       <Grid.Column width={8}>
+//         <Container className="profilefeed" />
+//         {/* feedgoeshere */}
+//       </Grid.Column>
+//       <Grid.Row width={3}>
+//         <Card className="userprofile">
+//           <Image src="./jen.jpeg" />
+//           <Card.Content>
+//             <Card.Header>Jen</Card.Header>
+//             <Card.Meta>
+//               <span className="date">Joined in 2015</span>
+//             </Card.Meta>
+//             <Card.Description>Hello my name is Jen</Card.Description>
+//           </Card.Content>
+//           <Card.Content extra>
+//             <a>
+//               <Icon name="user" />
+//               22 Friends
+//             </a>
+//           </Card.Content>
+//         </Card>
+//       </Grid.Row>
+//       <Grid.Column width={3}>
+//         <div className="uploadphoto">
+//           <button>Upload photo</button>
+//         </div>
+//         <legend>Enter New User Here</legend>
+//         <fieldset>
+//           <input
+//             type="text"
+//             onChange={this.handleChangeUpdateDisplayName}
+//             placeholder="New Display Name"
+//           />
+//         </fieldset>
+//         <br />
+//         <fieldset>
+//           Enter New Password:
+//           <br />
+//           <input
+//             type="password"
+//             onChange={this.handleChangeUpdatePassword}
+//             placeholder="New Password"
+//           />
+//         </fieldset>
+//         <br />
+//         <fieldset>
+//           Confirm New Password:
+//           <br />
+//           <input type="password" />
+//         </fieldset>
+//         <br />
+//         <div className="submitchangebutton">
+//           <button onClick={this.handleUpdate}>Submit changes</button>
+//           {/* This is a dummy button; waiting for submit changes language. no authorization token should be necessary */}
+//         </div>
+//         <br />
+
+//         {/* Add Clint's photo button after QA */}
+//         <br />
+//         <div className="deleteuserbutton">
+//           <button>Delete user</button>
+//           {/*   Clint is working on this feature. User delete Currently Authenticated endpoint? */}
+//         </div>
+//         <div className="logoutbutton">
+//           <button
+//             className="logOutButton"
+//             // onClick={this.props.toLoginPage}
+//           >
+//             Log Out
+//           </button>
+//         </div>
+//       </Grid.Column>
+//     </Grid.Row>
+//   </Grid>
+// </Container>
 
 // ;  don't need map state to props because we aren't displaying the current values, therefore, nothing to read/display
 const mapDispatchToProps = dispatch => {

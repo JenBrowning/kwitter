@@ -1,7 +1,7 @@
 .head {
   position: relative;
   border: 2px solid black;
-  background: rgb(8, 132, 163);
+  background: rgb(5, 191, 197);
   height: 100px;
   text-align: center;
 }
@@ -12,13 +12,27 @@
   background-image: url("photos/stockIcon.gif");
   background-size: 75px 75px;
   border-radius: 50%;
-  height: 75%;
-  width: 75px;
+  height: 100%;
+  width: 100px;
+  left: 20px;
 }
 
 h1 {
   position: relative;
   z-index: 2;
   text-align: center;
-  bottom: 65px;
+  bottom: 110px;
+  color: white;
+  font-family: fantasy;
+  font-size: 40px;
+}
+
+h2 {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  bottom: 100px;
+  color: white;
+  font-family: fantasy;
+  font-size: 10px;
 }
