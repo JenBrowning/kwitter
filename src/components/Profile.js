@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { register, updateUser } from "../actions/action";
+import MessageFeed from "./MessageFeed";
+import UserProfileSynopsis from "./UserProfileSynopsis";
+
 
 import AHMessageFeed from "./AHMessageFeed.js";
 import DeleteUserButton from "./deleteUserButton.js"
@@ -103,6 +106,9 @@ class Profile extends React.Component {
             <input className="input" type="password" />
           </fieldset>
           <br />
+
+          <UserProfileSynopsis />
+          <MessageFeed />
 
           Uploaded Photo Will be added here.
           <button>upload photo</button>

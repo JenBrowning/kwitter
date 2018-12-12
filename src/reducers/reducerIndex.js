@@ -1,9 +1,11 @@
+
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   REGISTER,
   POST_MESSAGES
 } from "../actions/action";
+
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN } from "../actions/action";
 import {
   DELETE_USER_SUCCESS,
@@ -12,10 +14,44 @@ import {
 } from "../actions/action";
 import { GET_MESSAGES } from "../actions/action";
 
-import { UPDATE_USER, UPDATE_USER_SUCCESS, UPDATE_USER_FAILURE } from "../actions/action";
-import { GET_USER_MESSAGES } from "../actions/action";
+import {
+  UPDATE_USER,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILURE
+} from "../actions/action";
+import { GET_USER, GET_ALL_USERS, GET_USER_SUCCESS } from "../actions/action";
 
-const initialState = { register: {}, registerResult: "", loginData: {token: "", id: 0, success: false}, loginResult: "", displayName: "", updateResult: "" , deleteUserResult: "", messages: [], AHMessages: [] };
+
+const initialState = {
+  register: {},
+  registerResult: "",
+  loginData: { token: "", id: 0, success: false },
+  loginResult: "",
+
+  user: {
+    id: 0,
+    username: "",
+    displayName: "",
+    about: "",
+    createdAt: "",
+    updatedAt: "",
+    messages: []
+  },
+  users: [
+    {
+      id: 0,
+      username: "",
+      displayName: "",
+      about: "",
+      createdAt: "",
+      updatedAt: ""
+    }
+  ],
+  displayName: "",
+  updateResult: "",
+  deleteUserResult: "",
+  messages: []
+};
 
 
 const reducer = (state = initialState, action) => {
@@ -78,6 +114,7 @@ const reducer = (state = initialState, action) => {
         messages: action.messages
       };
 
+
     case POST_MESSAGES:
       return {
         ...state,
@@ -87,6 +124,7 @@ const reducer = (state = initialState, action) => {
     // cases below are for updating the user's info
     case UPDATE_USER:
       return {
+
         ...state
       };
 
@@ -102,11 +140,29 @@ const reducer = (state = initialState, action) => {
         updateResult: action.updateResult
       };
 
+
+    case GET_USER:
+      return {
+        ...state
+      };
+
+    case GET_USER_SUCCESS:
+      return {
+        ...state,
+        user: action.user
+      };
+
+    case GET_ALL_USERS:
+      return {
+        ...state
+      };
+
       case GET_USER_MESSAGES:
       return {
         ...state,
         AHMessages: action.messages
       }
+
 
     default:
       return state;
