@@ -57,7 +57,6 @@ class App extends React.Component {
                 path={"/userProfile"}
                 render={props => (
                   <React.Fragment>
-                    <UserProfileSynopsis />
                     <Profile />
                     <LogOutButton />
                   </React.Fragment>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { register } from "../actions/action";
 import { connect } from "react-redux";
 import "../styles/RegistrationPage.css";
+import { Form, Segment, Grid, Button } from "semantic-ui-react";
 
 // let Center = require("react-center");
 
@@ -36,40 +37,45 @@ class RegistrationPage extends Component {
   render() {
     return (
       <div className="entireform">
-        <form>
-          <legend>Register Below</legend>
-          <fieldset>
-            <input
-              type="text"
-              onChange={this.handleChangeUsername}
-              required
-              placeholder="Username"
-            />
-          </fieldset>
-          <fieldset>
-            <input
-              type="password"
-              onChange={this.handleChangePassword}
-              required
-              placeholder="Password"
-            />
-          </fieldset>
-          <fieldset>
-            <input
-              type="text"
-              onChange={this.handleChangeDisplayName}
-              required
-              placeholder="Display Name"
-            />
-          </fieldset>
-        </form>
-
-        <div className="button">
-          <button onClick={this.handleRegister} placeholder="Register">
-            Register
-          </button>
-        </div>
-
+        <Grid className="grid">
+          <Form>
+            <Segment stacked>
+              <Form.Field>
+                <input
+                  type="text"
+                  onChange={this.handleChangeUsername}
+                  required
+                  placeholder="Username"
+                />
+              </Form.Field>
+              <br />
+              <Form.Field>
+                <input
+                  type="password"
+                  onChange={this.handleChangePassword}
+                  required
+                  placeholder="Password"
+                />
+              </Form.Field>
+              <br />
+              <Form.Field>
+                <input
+                  type="text"
+                  onChange={this.handleChangeDisplayName}
+                  required
+                  placeholder="Display Name"
+                />
+              </Form.Field>
+              <Button
+                onClick={this.handleRegister}
+                name="register"
+                placeholder="Register"
+              >
+                Register
+              </Button>
+            </Segment>
+          </Form>
+        </Grid>
       </div>
     );
   }

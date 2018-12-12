@@ -4,7 +4,7 @@
   background-color: lightblue;
   margin: auto;
   height: 800px;
-  max-width: 1200px;
+  max-width: 1400px;
 }
 
 .gridcolumn1 {
@@ -12,6 +12,7 @@
   background-color: white;
   border-radius: 20px;
   margin: 20px;
+  padding: 20px;
 }
 
 .gridcolumn2 {
@@ -19,6 +20,7 @@
   background-color: white;
   border-radius: 20px;
   margin: 20px;
+  padding: 20px;
 }
 
 .gridcolumn3 {
@@ -26,26 +28,12 @@
   background-color: white;
   border-radius: 20px;
   margin: 20px;
+  padding: 20px;
 }
 
-.input {
-  width: 200px;
-}
-
-.submitchangebutton {
-  text-align: center;
-}
-
-.logoutbutton {
-  text-align: center;
-}
-
-.deleteuserbutton {
-  text-align: center;
-}
-
-.uploadphoto {
-  text-align: center;
+.button {
+  margin: auto;
+  padding: 3px;
 }
 
 /* .column1 {

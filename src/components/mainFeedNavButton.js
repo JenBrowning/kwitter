@@ -1,6 +1,7 @@
 import "../styles/mainFeedNavButton.css";
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "semantic-ui-react";
 
 class MainFeedNavButton extends React.Component {
   render() {
@@ -8,9 +9,9 @@ class MainFeedNavButton extends React.Component {
       // button below takes user to the main page
       //
       <Link to="/mainFeed">
-        <button className="mainFeedNavButton" onClick={this.setRedirect}>
+        <Button className="mainFeedNavButton" onClick={this.setRedirect}>
           Main Page
-        </button>
+        </Button>
       </Link>
     );
   }
