@@ -13,6 +13,7 @@ import MessageFeed from "./MessageFeed";
 import SearchForMessages from "./SearchForMessage";
 import DeleteMessage from "./DeleteMessage";
 import { UPDATE_USER, updateUser } from "../actions/action";
+import MessageInputBox from "./MessageInputBox";
 
 class App extends React.Component {
   constructor() {
@@ -69,6 +70,7 @@ class App extends React.Component {
                   <React.Fragment>
                     {/* <Header /> */}
                     <UserProfileSynopsis />
+                    <MessageInputBox />
                     {/* <PostNewMessage 
 
                   message={this.state.message} /> */}
