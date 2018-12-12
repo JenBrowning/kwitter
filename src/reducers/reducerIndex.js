@@ -153,7 +153,8 @@ const reducer = (state = initialState, action) => {
 
     case GET_ALL_USERS:
       return {
-        ...state
+        ...state,
+        users: action.users
       };
 
     case GET_USER_MESSAGES:

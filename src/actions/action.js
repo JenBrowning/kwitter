@@ -93,11 +93,11 @@ export const register = registerData => dispatch => {
             username: registerData.username,
             password: registerData.password
           })
-        );
+          )
+          .then(() => dispatch(push("/userProfile")))
       }
       fixTheRoute();
 
-      dispatch(push("/userProfile"));
     })
     .catch(err => {
       // dispatch here on fail --
@@ -108,13 +108,18 @@ export const register = registerData => dispatch => {
     });
 };
 
+export const loginThenMainFeed = loginData => dispatch => {
+  dispatch(login(loginData))
+  .then(() => dispatch(push('/mainFeed')))
+}
+
 export const login = loginData => dispatch => {
   // dispatch here before fetch
   dispatch({
     type: LOGIN
   });
 
-  fetch("https://kwitter-api.herokuapp.com/auth/login", {
+  return fetch("https://kwitter-api.herokuapp.com/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -138,7 +143,10 @@ export const login = loginData => dispatch => {
           loginData: data
         });
         // logic for routing
-        dispatch(push("/mainFeed"));
+        dispatch(getAllUsersInfo());
+
+        // dispatch(push("/mainFeed"));
+
       } else {
         throw "nope.";
       }

@@ -5,6 +5,7 @@ import { Grid, Container, Icon, Image, Card, Sticky } from "semantic-ui-react";
 import ProfilePageNavButton from "./ProfilePageNavButton";
 import { messagefeed } from "./Component/MessageInputBox";
 import MessageInputBox from "./MessageInputBox";
+import { MessageFeed } from "./MessageFeed";
 
 //changed file name and component name from messagefeed to mainfeed
 class MainPage extends React.Component {
@@ -36,7 +37,7 @@ class MainPage extends React.Component {
 
             <Grid.Column width={8}>
               <Container className="messagefeed" />
-              {/* feedgoeshere */}
+              <MessageFeed />
             </Grid.Column>
             <Grid.Column width={3}>
               <Sticky offset={75}>{/* <CustomFooter /> */}</Sticky>

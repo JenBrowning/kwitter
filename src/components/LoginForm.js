@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { login } from "../actions/action";
+import { loginThenMainFeed } from "../actions/action";
 import { Link } from "react-router-dom";
 // import { Form } from "semantic-ui-react";
 import "../styles/LoginForm.css";
 // Might need import for the link to RegistrationPage
+
 
 class LoginForm extends Component {
   state = {
@@ -24,7 +25,7 @@ class LoginForm extends Component {
     });
   };
 
-  handleLogIn = event => {
+  handleLogin = event => {
     this.props.login({
       username: this.state.username,
       password: this.state.password
@@ -34,10 +35,10 @@ class LoginForm extends Component {
   render() {
     return (
       <div className="login-form">
-        <div class="ui middle aligned center aligned grid">
-          <div class="column">
-            <h1 class="ui image header">
-              <div class="content">Login To Your Account</div>
+        <div className="ui middle aligned center aligned grid">
+          <div className="column">
+            <h1 className="ui image header">
+              <div className="content">Login To Your Account</div>
             </h1>
           </div>
         </div>
@@ -45,12 +46,12 @@ class LoginForm extends Component {
         <form
           action="https://s.codepen.io/voltron2112/debug/PqrEPM?"
           method="get"
-          class="ui large form"
+          className="ui large form"
         >
-          <div class="ui stacked secondary segment">
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="user icon" />
+          <div className="ui stacked secondary segment">
+            <div className="field">
+              <div className="ui left icon input">
+                <i className="user icon" />
                 <input
                   type="text"
                   onChange={this.handleCheckUserName}
@@ -59,9 +60,9 @@ class LoginForm extends Component {
                 />
               </div>
             </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="lock icon" />
+            <div className="field">
+              <div className="ui left icon input">
+                <i className="lock icon" />
                 <input
                   type="password"
                   onChange={this.handleCheckPassword}
@@ -70,24 +71,23 @@ class LoginForm extends Component {
                 />
               </div>
             </div>
-            <Link to="/userProfile">
               <div
-                class="ui fluid large teal submit button"
+                className="ui fluid large teal submit button"
                 onClick={this.handleLogin}
               >
                 Login
               </div>
-            </Link>
           </div>
           <Link to="/registration">
-            <div class="ui message">
+            <div className="ui message">
               New To Us?{" "}
-              <a
+              Register
+              {/* <a
                 href="https://s.codepen.io/voltron2112/debug/PqrEPM?"
                 onClick={this.setRedirect}
               >
                 Register
-              </a>
+              </a> */}
             </div>
           </Link>
         </form>
@@ -98,12 +98,13 @@ class LoginForm extends Component {
 const mapStateToProps = state => {
   return {
     result: state.LoginResult
+
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: loginData => dispatch(login(loginData))
+    login: loginData => dispatch(loginThenMainFeed(loginData))
   };
 };
 export default connect(

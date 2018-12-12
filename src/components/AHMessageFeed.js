@@ -4,7 +4,7 @@ import { MessageFeed } from "./MessageFeed";
 
 const mapStateToProps = state => {
     return {
-      messages: state.AHMessages
+      messages: state.user.messages
     };
   };
   
