@@ -1,4 +1,11 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL, REGISTER } from "../actions/action";
+
+import {
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
+  REGISTER,
+  POST_MESSAGES
+} from "../actions/action";
+
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN } from "../actions/action";
 import {
   DELETE_USER_SUCCESS,
@@ -6,6 +13,7 @@ import {
   DELETE_USER
 } from "../actions/action";
 import { GET_MESSAGES } from "../actions/action";
+
 import {
   UPDATE_USER,
   UPDATE_USER_SUCCESS,
@@ -44,6 +52,7 @@ const initialState = {
   deleteUserResult: "",
   messages: []
 };
+
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -105,9 +114,17 @@ const reducer = (state = initialState, action) => {
         messages: action.messages
       };
 
+
+    case POST_MESSAGES:
+      return {
+        ...state,
+        messages: action.result
+      };
+
     // cases below are for updating the user's info
     case UPDATE_USER:
       return {
+
         ...state
       };
 
@@ -122,6 +139,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         updateResult: action.updateResult
       };
+
 
     case GET_USER:
       return {
@@ -138,6 +156,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state
       };
+
+      case GET_USER_MESSAGES:
+      return {
+        ...state,
+        AHMessages: action.messages
+      }
+
 
     default:
       return state;

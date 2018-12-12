@@ -24,6 +24,7 @@ class Header extends React.Component {
       <div className="head">
         <div className="kwitterIcon" />
         <h1>KWITTER</h1>
+        {/* <h2>Something Cool and Sweet</h2> */}
       </div>
     );
   }

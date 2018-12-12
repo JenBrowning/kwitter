@@ -5,10 +5,12 @@ import { connect } from "react-redux";
 import { getUserData } from "../actions/action";
 import moment from 'moment';
 
+
 class UserProfileSynopsis extends React.Component {
   componentDidMount() {
     this.props.getUserData();
   }
+
 
   render() {
     return (

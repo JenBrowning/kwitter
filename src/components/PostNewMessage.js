@@ -1,5 +1,6 @@
 import "../styles/PostNewMessage.css";
 import React from "react";
+import PostMessage from "../actions/action";
 
 class PostNewMessage extends React.Component {
   render() {
@@ -13,7 +14,9 @@ class PostNewMessage extends React.Component {
                 type="text"
                 // value={this.state.value}
               />
-              <button>{/* will need to post message to db here.  probably will include onChange or onClick */}</button>
+              <button>
+                {/* will need to post message to db here.  probably will include onChange or onClick */}
+              </button>
             </label>
           </form>
         </div>
