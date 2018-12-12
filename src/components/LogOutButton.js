@@ -5,10 +5,13 @@ class LogOutButton extends React.Component {
   render() {
     return (
       // button below takes user to the login page
-      // 
-      <button className="logOutButton"
+      //
+      <button
+        className="logOutButton"
         // onClick={this.props.toLoginPage}
-      >Log Out</button>
+      >
+        Log Out
+      </button>
     );
   }
 }

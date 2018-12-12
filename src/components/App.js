@@ -29,17 +29,17 @@ class App extends React.Component {
           {/* <Header />
           <LoginForm /> */}
 
-          {<Switch>
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <React.Fragment>
-                <LoginForm />
-        
-                </React.Fragment>
-               )}
-            />
+          {
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <React.Fragment>
+                    <LoginForm />
+                  </React.Fragment>
+                )}
+              />
 
               <Route
                 // exact
@@ -52,13 +52,12 @@ class App extends React.Component {
                 )}
               />
 
-
               <Route
                 path={"/userProfile"}
                 render={props => (
                   <React.Fragment>
-                    <Header />
-                    <UserProfileSynopsis />
+                    {/* <Header /> */}
+                    {/* <UserProfileSynopsis /> */}
                     <Profile />
                     <LogOutButton />
                   </React.Fragment>
