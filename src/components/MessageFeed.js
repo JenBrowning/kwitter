@@ -13,8 +13,8 @@ export class MessageFeed extends React.Component {
   }
 
    matchIdtoUsername = userId => {
-    let name = this.props.users.filter(user => user.id === userId);
-    if (name[0]) return name[0].username;
+    let user = this.props.users.find(user => user.id === userId);
+    if (user) return user.username;
     return "Deleted";
   };
 
@@ -27,8 +27,8 @@ export class MessageFeed extends React.Component {
           <div>
           {/* Stretch goal to add image before name */}
           {this.matchIdtoUsername(message.userId)}: <br/>
-          {this.matchIdtoUsername(message.text)} <br/>
-          {this.matchIdtoUsername(message.createdAt)}
+          {message.text} <br/>
+          {message.createdAt}
           </div>
           )}
 
@@ -41,13 +41,15 @@ export class MessageFeed extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    messages: state.messages
+    messages: state.messages,
+    users: state.users
   };
 };
 
 const mapDispatchToProps = {
   //This is a shorcut for map.dispatchToProps
   fetchMessages
+  // could also add getAllUserInfo here to give the component the data it needs to make changes to the feed info.
 };
 
 export default connect(

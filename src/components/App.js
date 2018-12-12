@@ -57,9 +57,7 @@ class App extends React.Component {
                 path={"/userProfile"}
                 render={props => (
                   <React.Fragment>
-                    {/* <Header /> */}
                     <UserProfileSynopsis />
-
                     <Profile />
                     <LogOutButton />
                   </React.Fragment>
@@ -70,11 +68,8 @@ class App extends React.Component {
                 render={props => (
                   <React.Fragment>
                     <UserProfileSynopsis />
-
                     <MessageFeed />
-
                     <MessageInputBox />
-                    
                     <LogOutButton />
                   </React.Fragment>
                 )}

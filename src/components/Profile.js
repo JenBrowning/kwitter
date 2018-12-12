@@ -105,7 +105,6 @@ class Profile extends React.Component {
           </fieldset>
           <br />
           <UserProfileSynopsis />
-          <MessageFeed />
           Uploaded Photo Will be added here.
           <button>upload photo</button>
           {/* Add Clint's photo button after QA */}
