@@ -23,7 +23,6 @@ export const DELETE_USER_FAILURE = "DELETE_USER_FAILURE";
 //const for messages
 export const GET_MESSAGES = "GET_MESSAGES";
 
-
 // const for getting user info
 export const GET_ALL_USERS = "GET_ALL_USERS";
 export const GET_USER = "GET_USER";
@@ -31,7 +30,6 @@ export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 
 export const GET_USER_MESSAGES = "GET_USER_MESSAGES";
 export const POST_MESSAGES = "POST_MESSAGES";
-
 
 export const postMessage = text => (dispatch, getState) => {
   const token = getState().loginData.token;
@@ -50,7 +48,6 @@ export const postMessage = text => (dispatch, getState) => {
       // dispatch({type: _____})
     });
 };
-
 
 //consts for profile.  push onto the history stack (to hit back a page)
 
@@ -89,7 +86,7 @@ export const register = registerData => dispatch => {
         register: data,
         result: "Successfully Registered!"
       });
-      
+
       async function fixTheRoute() {
         await dispatch(
           login({
@@ -97,10 +94,9 @@ export const register = registerData => dispatch => {
             password: registerData.password
           })
         );
+      }
+      fixTheRoute();
 
-      };
-      fixTheRoute()
-      
       dispatch(push("/userProfile"));
     })
     .catch(err => {
@@ -242,36 +238,29 @@ export const fetchMessages = () => dispatch => {
     });
 };
 
-
 export const getMessages = messages => {
   return {
-
-      type: GET_MESSAGES,
-      messages
-  }
-}
-
-export const fetchAHMessages = () => (dispatch, getState) => {
-  const AHID = getState().loginData.id
-  fetch(`https://kwitter-api.herokuapp.com/users/${AHID}`)
-  //AHID is a javascript variable that pulls the information from the redux state which houses the information of our user ID and allows us to put it into the fetch request.
-    .then(response => response.json())
-    .then(data => {
-      dispatch(getAHMessages(data.user.messages))
-    })
-}
-
-export const getAHMessages = (messages) => {
-  return {
-      type: GET_USER_MESSAGES,
-      messages
-  }
-}
     type: GET_MESSAGES,
     messages
   };
 };
 
+export const fetchAHMessages = () => (dispatch, getState) => {
+  const AHID = getState().loginData.id;
+  fetch(`https://kwitter-api.herokuapp.com/users/${AHID}`)
+    //AHID is a javascript variable that pulls the information from the redux state which houses the information of our user ID and allows us to put it into the fetch request.
+    .then(response => response.json())
+    .then(data => {
+      dispatch(getAHMessages(data.user.messages));
+    });
+};
+
+export const getAHMessages = messages => {
+  return {
+    type: GET_USER_MESSAGES,
+    messages
+  };
+};
 
 export const getUserData = () => (dispatch, getState) => {
   const userId = getState().loginData.id;
@@ -306,4 +295,3 @@ export const getAllInfo = users => {
     users
   };
 };
-
