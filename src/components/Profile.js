@@ -8,7 +8,7 @@ import AHMessageFeed from "./AHMessageFeed.js";
 import DeleteUserButton from "./deleteUserButton.js";
 import MainFeedNavButton from "./MainFeedNavButton.js";
 
-import { Grid, Card, Image, Icon } from "semantic-ui-react";
+import { Grid, Button, Form, Segment } from "semantic-ui-react";
 import "../styles/Profile.css";
 
 //this was class changeuserprofile
@@ -50,80 +50,53 @@ class Profile extends React.Component {
     return (
       <Grid className="grid">
         <Grid.Column className="gridcolumn1" width={4}>
-          <Card className="userprofile">
-            <Image src="https://semantic-ui.com/images/wireframe/image.png" />
-            <Card.Content>
-              <Card.Header>Jen</Card.Header>
-              <Card.Meta>
-                <span className="date">Joined in 2015</span>
-              </Card.Meta>
-              <Card.Description>
-                software engineer. mamabear. luv live music. jokes. chocolate.
-                swear2much. ambivert. trust your struggles.
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <a>
-                <Icon name="user" />
-                1M Friends
-              </a>
-            </Card.Content>
-          </Card>
+          <UserProfileSynopsis />
           <div className="uploadphoto">
-            <button>Upload photo</button>
+            <Button>Upload photo</Button>
           </div>
         </Grid.Column>
         <Grid.Column className="gridcolumn2" width={6}>
           <p>Where the feed for Profile goes</p>
+          <AHMessageFeed />
         </Grid.Column>
         <Grid.Column className="gridcolumn3" width={4}>
           <legend>Making a Change?</legend>
-          <fieldset className="fieldset">
-            <input
-              className="input"
-              type="text"
-              onChange={this.handleChangeUpdateDisplayName}
-              placeholder="New Display Name"
-            />
-          </fieldset>
-          <br />
-          <fieldset>
-            Enter New Password:
-            <br />
-            <input
-              className="input"
-              type="password"
-              onChange={this.handleChangeUpdatePassword}
-              placeholder="New Password"
-            />
-          </fieldset>
-          <br />
-          <fieldset>
-            Confirm New Password:
-            <br />
-            <input className="input" type="password" />
-          </fieldset>
-          <br />
-          <UserProfileSynopsis />
-          Uploaded Photo Will be added here.
-          <button>upload photo</button>
-          {/* Add Clint's photo button after QA */}
-          <br />
-          <AHMessageFeed />
-          <MainFeedNavButton />
-          <button>
-            delete user
-            <DeleteUserButton />
-          </button>
-          <div className="submitchangebutton">
-            <button onClick={this.handleUpdate}>Submit changes</button>
-          </div>
-          <div className="deleteuserbutton">
-            <button>Delete user</button>
-          </div>
-          <div className="logoutbutton">
-            <button onClick={this.props.toLoginPage}>Log Out</button>
-          </div>
+          <Form>
+            <Segment stacked>
+              <Form.Field>
+                <input
+                  className="input"
+                  type="text"
+                  onChange={this.handleChangeUpdateDisplayName}
+                  placeholder="New Display Name"
+                />
+              </Form.Field>
+              <br />
+              <Form.Field>
+                Enter New Password:
+                <br />
+                <input
+                  className="input"
+                  type="password"
+                  onChange={this.handleChangeUpdatePassword}
+                  placeholder="New Password"
+                />
+              </Form.Field>
+              <br />
+              <Form.Field>
+                Confirm New Password:
+                <br />
+                <input className="input" type="password" />
+              </Form.Field>
+
+              <Button onClick={this.handleUpdate}>Submit changes</Button>
+              <DeleteUserButton />
+              <br />
+              <MainFeedNavButton />
+
+              <Button onClick={this.props.toLoginPage}>Log Out</Button>
+            </Segment>
+          </Form>
         </Grid.Column>
       </Grid>
     );

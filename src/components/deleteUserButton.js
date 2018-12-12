@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteUser } from "../actions/action";
+import { Button } from "semantic-ui-react";
 
 class DeleteUserButton extends React.Component {
   render() {
     return (
-      <button className="deleteUserButton" onClick={this.props.deleteUser}>
+      <Button className="deleteUserButton" onClick={this.props.deleteUser}>
         Delete User
-      </button>
+      </Button>
     );
   }
 }

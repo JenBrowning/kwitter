@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginThenMainFeed } from "../actions/action";
 import { Link } from "react-router-dom";
-// import { Form } from "semantic-ui-react";
+import { Form, Grid, Segment } from "semantic-ui-react";
 import "../styles/LoginForm.css";
-// Might need import for the link to RegistrationPage
-
 
 class LoginForm extends Component {
   state = {
@@ -34,71 +32,63 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div className="login-form">
-        <div className="ui middle aligned center aligned grid">
-          <div className="column">
-            <h1 className="ui image header">
-              <div className="content">Login To Your Account</div>
-            </h1>
-          </div>
-        </div>
-
-        <form
+      <Grid>
+        <Form
           action="https://s.codepen.io/voltron2112/debug/PqrEPM?"
           method="get"
           className="ui large form"
         >
-          <div className="ui stacked secondary segment">
-            <div className="field">
-              <div className="ui left icon input">
-                <i className="user icon" />
-                <input
-                  type="text"
-                  onChange={this.handleCheckUserName}
-                  required
-                  placeholder="Enter Username"
-                />
+          <Segment>
+            <div className="ui stacked secondary segment">
+              <div className="field">
+                <div className="ui left icon input">
+                  <i className="user icon" />
+                  <input
+                    type="text"
+                    onChange={this.handleCheckUserName}
+                    required
+                    placeholder="Enter Username"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="field">
-              <div className="ui left icon input">
-                <i className="lock icon" />
-                <input
-                  type="password"
-                  onChange={this.handleCheckPassword}
-                  required
-                  placeholder="Enter Password"
-                />
+              <div className="field">
+                <div className="ui left icon input">
+                  <i className="lock icon" />
+                  <input
+                    type="password"
+                    onChange={this.handleCheckPassword}
+                    required
+                    placeholder="Enter Password"
+                  />
+                </div>
               </div>
-            </div>
               <div
                 className="ui fluid large teal submit button"
                 onClick={this.handleLogin}
               >
                 Login
               </div>
-          </div>
-          <Link to="/registration">
-            <div className="ui message">
-              New To Us?{" "}
-              Register
-              {/* <a
+            </div>
+            <Link to="/registration">
+              <div className="ui message">
+                New To Us? Register
+                {/* <a
                 href="https://s.codepen.io/voltron2112/debug/PqrEPM?"
                 onClick={this.setRedirect}
               >
                 Register
               </a> */}
-            </div>
-          </Link>
-        </form>
-      </div>
+              </div>
+            </Link>
+          </Segment>
+        </Form>
+      </Grid>
     );
   }
 }
 const mapStateToProps = state => {
   return {
     result: state.LoginResult
-
   };
 };
 

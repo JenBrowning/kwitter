@@ -3,15 +3,14 @@ import React from "react";
 import { Card, Image, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { getUserData } from "../actions/action";
-import moment from 'moment';
-
+import moment from "moment";
 
 class UserProfileSynopsis extends React.Component {
   componentDidMount() {
     this.props.getUserData();
   }
 
-  // 
+
 
   matchIdtoUsername = userId => {
     let user = this.props.user.find(user => user.id === userId);
@@ -23,11 +22,12 @@ class UserProfileSynopsis extends React.Component {
     return (
       <div className="container">
         <Card className="userprofile">
-          <Image src="./jen.jpeg" />
+          <Image src="https://semantic-ui.com/images/wireframe/image.png" />
           {/* link to image file above  this.state.user.photo? */}
           <Card.Content>
             <Card.Header>Name: {this.props.user.displayName}</Card.Header>
             <Card.Meta>
+
                 <span className="date">
                 Kweeter since {moment(this.props.user.createdAt).fromNow()}
                 </span>
@@ -35,13 +35,14 @@ class UserProfileSynopsis extends React.Component {
 
             <Card.Description>
               Hello my name is {this.props.user.username} , This is what I have to say about myself: "{this.props.user.about}""
+
             </Card.Description>
           </Card.Content>
 
           <Card.Content extra>
             <a>
               <Icon name="user" />
-              22 Friends
+              1M Friends
             </a>
           </Card.Content>
         </Card>
