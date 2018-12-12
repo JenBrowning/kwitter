@@ -5,7 +5,7 @@ import { Card, Image, Icon } from "semantic-ui-react";
 const CardExampleCard = () => (
   <div className="container">
     <Card className="userprofile">
-      <Image src="./jen.jpeg" />
+      <Image src="./download.jpg" />
       <Card.Content>
         <Card.Header>Jen</Card.Header>
         <Card.Meta>
