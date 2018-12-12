@@ -28,6 +28,26 @@
   margin: 20px;
 }
 
+.input {
+  width: 200px;
+}
+
+.submitchangebutton {
+  text-align: center;
+}
+
+.logoutbutton {
+  text-align: center;
+}
+
+.deleteuserbutton {
+  text-align: center;
+}
+
+.uploadphoto {
+  text-align: center;
+}
+
 /* .column1 {
   display: flex;
   justify-content: center;
