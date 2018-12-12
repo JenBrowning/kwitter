@@ -10,7 +10,7 @@ class UserProfileSynopsis extends React.Component {
     this.props.getUserData();
   }
 
-  //
+
 
   matchIdtoUsername = userId => {
     let user = this.props.user.find(user => user.id === userId);
@@ -27,14 +27,15 @@ class UserProfileSynopsis extends React.Component {
           <Card.Content>
             <Card.Header>Name: {this.props.user.displayName}</Card.Header>
             <Card.Meta>
-              <span className="date">
+
+                <span className="date">
                 Kweeter since {moment(this.props.user.createdAt).fromNow()}
-              </span>
+                </span>
             </Card.Meta>
 
             <Card.Description>
-              Hello my name is {this.props.user.username} , A little About Me: "
-              {this.props.user.about}""
+              Hello my name is {this.props.user.username} , This is what I have to say about myself: "{this.props.user.about}""
+
             </Card.Description>
           </Card.Content>
 
