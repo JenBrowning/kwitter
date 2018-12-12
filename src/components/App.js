@@ -14,7 +14,7 @@ import SearchForMessages from "./SearchForMessage";
 import DeleteMessage from "./DeleteMessage";
 import { UPDATE_USER, updateUser } from "../actions/action";
 import MessageInputBox from "./MessageInputBox";
-import MainFeedNavButton from "./MainFeedNavButton";
+
 import MainPage from "./MainPage";
 
 class App extends React.Component {
