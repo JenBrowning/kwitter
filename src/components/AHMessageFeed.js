@@ -4,7 +4,8 @@ import { MessageFeed } from "./MessageFeed";
 
 const mapStateToProps = state => {
     return {
-      messages: state.user.messages
+      messages: state.user.messages || [],
+      users: state.users
     };
   };
   
