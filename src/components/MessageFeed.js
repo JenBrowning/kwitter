@@ -3,13 +3,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchMessages } from "../actions/action";
 import { MessageInputBox } from "./MessageInputBox";
+import moment from 'moment';
 
 
 export class MessageFeed extends React.Component {
   componentDidMount(){
     this.props.fetchMessages()
-
-
   }
 
    matchIdtoUsername = userId => {
@@ -18,6 +17,12 @@ export class MessageFeed extends React.Component {
     return "Deleted";
   };
 
+  formatDate = (createdAt) => {
+    const date = new Date(createdAt)
+    return date.toLocaleDateString() + " at " + date.toLocaleTimeString()
+  }
+
+
   render() {
     return (
       <div className="messages">
@@ -25,13 +30,11 @@ export class MessageFeed extends React.Component {
 
         {this.props.messages.map(message =>
           <div>
-          {/* Stretch goal to add image before name */}
           {this.matchIdtoUsername(message.userId)}: <br/>
           {message.text} <br/>
-          {message.createdAt}
+          {this.formatDate(message.createdAt)}
           </div>
           )}
-
           {/* list of all messages.  This will be a fetch/get request. Will involve polling.  And we need to make sure the most recent message is at the top, and messages are listed in descending order. See if we can adjust formatting so that the feed scrolls down automatically--may include an auto feed of the next 10 or so messages as the mouse moves.*/}
         </div>
       </div>
@@ -41,7 +44,7 @@ export class MessageFeed extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    messages: state.messages,
+    messages: state.messages || [],
     users: state.users
   };
 };

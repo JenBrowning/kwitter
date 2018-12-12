@@ -2,10 +2,11 @@ import "../styles/MainPage.css";
 import React from "react";
 import { Grid, Container, Icon, Image, Card, Sticky } from "semantic-ui-react";
 
-import ProfilePageNavButton from "./ProfilePageNavButton";
-import { messagefeed } from "./Component/MessageInputBox";
-import MessageInputBox from "./MessageInputBox";
-import { MessageFeed } from "./MessageFeed";
+import  MessageFeed  from "./MessageFeed";
+import LogOutButton from "./LogOutButton";
+import UserProfileSynopsis from './UserProfileSynopsis';
+import MessageInputBox from "./MessageInputBox.js";
+import ProfilePageNavButton from "./ProfilePageNavButton.js";
 
 //changed file name and component name from messagefeed to mainfeed
 class MainPage extends React.Component {
@@ -37,12 +38,15 @@ class MainPage extends React.Component {
 
             <Grid.Column width={8}>
               <Container className="messagefeed" />
-              <MessageFeed />
+              {/* <MessageFeed /> */}
             </Grid.Column>
             <Grid.Column width={3}>
               <Sticky offset={75}>{/* <CustomFooter /> */}</Sticky>
             </Grid.Column>
             <ProfilePageNavButton />
+            <MessageFeed />
+            <UserProfileSynopsis />
+            <LogOutButton />
           </Grid.Row>
           <MessageInputBox />
         </Grid>

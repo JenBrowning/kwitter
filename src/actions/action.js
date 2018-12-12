@@ -44,7 +44,7 @@ export const postMessage = text => (dispatch, getState) => {
   })
     .then(response => response.json())
     .then(data => {
-      // dispatch(postMessage(data.message));
+      dispatch(fetchMessages());
       // dispatch({type: _____})
     });
 };
@@ -290,7 +290,7 @@ export const getUserSuccess = user => {
 };
 
 export const getAllUsersInfo = () => dispatch => {
-  fetch("https://kwitter-api.herokuapp.com/users?limit=100&offset=0")
+  fetch("https://kwitter-api.herokuapp.com/users?limit=10000&offset=0")
     .then(response => response.json())
     .then(data => {
       dispatch(getAllInfo(data.users));
