@@ -1,6 +1,8 @@
 import "../styles/MainPage.css";
 import React from "react";
 import { Grid, Container, Icon, Image, Card, Sticky } from "semantic-ui-react";
+import { messagefeed } from "./Component/MessageInputBox";
+import MessageInputBox from "./MessageInputBox";
 
 //changed file name and component name from messagefeed to mainfeed
 class MainPage extends React.Component {
@@ -38,6 +40,7 @@ class MainPage extends React.Component {
               <Sticky offset={75}>{/* <CustomFooter /> */}</Sticky>
             </Grid.Column>
           </Grid.Row>
+          <MessageInputBox />
         </Grid>
       </Container>
     );

@@ -13,6 +13,7 @@ import MessageFeed from "./MessageFeed";
 import SearchForMessages from "./SearchForMessage";
 import DeleteMessage from "./DeleteMessage";
 import { UPDATE_USER, updateUser } from "../actions/action";
+import MessageInputBox from "./MessageInputBox";
 
 class App extends React.Component {
   constructor() {
@@ -29,17 +30,17 @@ class App extends React.Component {
           {/* <Header />
           <LoginForm /> */}
 
-          {<Switch>
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <React.Fragment>
-                <LoginForm />
-        
-                </React.Fragment>
-               )}
-            />
+          {
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <React.Fragment>
+                    <LoginForm />
+                  </React.Fragment>
+                )}
+              />
 
               <Route
                 // exact
@@ -51,7 +52,6 @@ class App extends React.Component {
                   </React.Fragment>
                 )}
               />
-
 
               <Route
                 path={"/userProfile"}
@@ -70,6 +70,7 @@ class App extends React.Component {
                   <React.Fragment>
                     {/* <Header /> */}
                     <UserProfileSynopsis />
+                    <MessageInputBox />
                     {/* <PostNewMessage 
 
                   message={this.state.message} /> */}
