@@ -57,7 +57,7 @@ class App extends React.Component {
                 path={"/userProfile"}
                 render={props => (
                   <React.Fragment>
-                    <Header />
+                    {/* <Header /> */}
                     <UserProfileSynopsis />
                     <Profile />
                     <LogOutButton />
@@ -68,19 +68,8 @@ class App extends React.Component {
                 path={"/mainFeed"}
                 render={props => (
                   <React.Fragment>
-                    {/* <Header /> */}
                     <UserProfileSynopsis />
-                    {/* <PostNewMessage 
-
-                  message={this.state.message} /> */}
-                    {/* <MessageFeed
-                  messages={this.state.messages} />
-                <SearchForMessages />
-                  // messages={this.state.messages.find(messages => ?)}  */}
-                    {/* // handler link/> */}
-                    {/* <DeleteMessage />
-                  // messages={this.state.messages.find(messages => ?)} 
-                  // handler link/> */}
+                    <MessageFeed />
                     <LogOutButton />
                   </React.Fragment>
                 )}

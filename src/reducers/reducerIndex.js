@@ -1,15 +1,53 @@
-
 import { REGISTER_SUCCESS, REGISTER_FAIL, REGISTER } from "../actions/action";
 import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN } from "../actions/action";
-import { DELETE_USER_SUCCESS, DELETE_USER_FAILURE, DELETE_USER } from "../actions/action";
+import {
+  DELETE_USER_SUCCESS,
+  DELETE_USER_FAILURE,
+  DELETE_USER
+} from "../actions/action";
 import { GET_MESSAGES } from "../actions/action";
-import { UPDATE_USER, UPDATE_USER_SUCCESS, UPDATE_USER_FAILURE } from "../actions/action";
+import {
+  UPDATE_USER,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILURE
+} from "../actions/action";
+import { GET_USER, GET_ALL_USERS, GET_USER_SUCCESS } from "../actions/action";
 
-const initialState = { register: {}, registerResult: "", loginData: {token: "", id: 0, success: false}, loginResult: "", displayName: "", updateResult: "" , deleteUserResult: "", messages: [] };
+
+const initialState = {
+  register: {},
+  registerResult: "",
+  loginData: { token: "", id: 0, success: false },
+  loginResult: "",
+
+  user: {
+    id: 0,
+    username: "",
+    displayName: "",
+    about: "",
+    createdAt: "",
+    updatedAt: "",
+    messages: []
+  },
+  users: [
+    {
+      id: 0,
+      username: "",
+      displayName: "",
+      about: "",
+      createdAt: "",
+      updatedAt: ""
+    }
+  ],
+  displayName: "",
+  updateResult: "",
+  deleteUserResult: "",
+  messages: []
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-     // cases below are for the registering
+    // cases below are for the registering
     case REGISTER:
       return state;
 
@@ -19,7 +57,7 @@ const reducer = (state = initialState, action) => {
         register: action.register,
         registerResult: action.result
       };
-      
+
     case REGISTER_FAIL:
       return {
         ...state,
@@ -31,7 +69,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         loginData: action.loginData
       };
-    
+
     case LOGIN_FAILURE:
       return {
         ...state,
@@ -43,13 +81,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         loginResult: action.result
       };
-      
+
     case DELETE_USER_SUCCESS:
       return {
         ...state,
         ...initialState
       };
-    
+
     case DELETE_USER_FAILURE:
       return {
         ...state,
@@ -58,19 +96,19 @@ const reducer = (state = initialState, action) => {
 
     case DELETE_USER:
       return {
-        ...state,
+        ...state
       };
 
-      case GET_MESSAGES:
+    case GET_MESSAGES:
       return {
         ...state,
         messages: action.messages
-      }
-    
-       // cases below are for updating the user's info
+      };
+
+    // cases below are for updating the user's info
     case UPDATE_USER:
       return {
-        ...state,
+        ...state
       };
 
     case UPDATE_USER_SUCCESS:
@@ -83,6 +121,22 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         updateResult: action.updateResult
+      };
+
+    case GET_USER:
+      return {
+        ...state
+      };
+
+    case GET_USER_SUCCESS:
+      return {
+        ...state,
+        user: action.user
+      };
+
+    case GET_ALL_USERS:
+      return {
+        ...state
       };
 
     default:

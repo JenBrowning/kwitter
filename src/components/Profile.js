@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { register, updateUser } from "../actions/action";
+import MessageFeed from "./MessageFeed";
+import UserProfileSynopsis from "./UserProfileSynopsis";
+
 
 //this was class changeuserprofile
 class Profile extends React.Component {
@@ -64,6 +67,8 @@ class Profile extends React.Component {
           <button onClick={this.handleUpdate}>Submit changes</button>
           {/* This is a dummy button; waiting for submit changes language. no authorization token should be necessary */}
           <br />
+          <UserProfileSynopsis />
+          <MessageFeed />
           Uploaded Photo Will be added here.
           <button>upload photo</button>
           {/* Add Clint's photo button after QA */}

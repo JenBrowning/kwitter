@@ -1,40 +1,60 @@
 import "../styles/UserProfileSynopsis.css";
 import React from "react";
 import { Card, Image, Icon } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { getUserData } from "../actions/action";
+import moment from 'moment';
 
-const CardExampleCard = () => (
-  <div className="container">
-    <Card className="userprofile">
-      <Image src="./jen.jpeg" />
-      <Card.Content>
-        <Card.Header>Jen</Card.Header>
-        <Card.Meta>
-          <span className="date">Joined in 2015</span>
-        </Card.Meta>
-        <Card.Description>Hello my name is Jen</Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <a>
-          <Icon name="user" />
-          22 Friends
-        </a>
-      </Card.Content>
-    </Card>
-  </div>
-);
+class UserProfileSynopsis extends React.Component {
+  componentDidMount() {
+    this.props.getUserData();
+  }
 
-export default CardExampleCard;
+  render() {
+    return (
+      <div className="container">
+        <Card className="userprofile">
+          <Image src="./jen.jpeg" />
+          {/* link to image file above  this.state.user.photo? */}
+          <Card.Content>
+            {/* <Card.Header>Name: {moment(this.props.user.id).fromNow()}</Card.Header> */}
+            <Card.Meta>
+                {/* <span className="date"> */}
+                {/* Kweeter since {this.props.user.createdAt} */}
+                {/* </span> */}
+            </Card.Meta>
 
-// class UserProfileSynopsis extends React.Component {
-//   render() {
-//     return (
-//       <div className="userSynopsis">
-//         <div placeholder="name goes here">Fred Flintstone</div>
-//         <div placeholder="username goes here">@fruityPebbles</div>
-//         <div placeholder="photo goes here">Smiling Face Photo</div>
-//       </div>
-//     );
-//   }
-// }
+            <Card.Description>
+              {/* Hello my name is {this.props.user.id} , I {this.props.user.about} */}
+            </Card.Description>
+          </Card.Content>
 
-// export default UserProfileSynopsis;
+          <Card.Content extra>
+            <a>
+              <Icon name="user" />
+              22 Friends
+            </a>
+          </Card.Content>
+        </Card>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    result: state.registerResult,
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getUserData: () => dispatch(getUserData())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserProfileSynopsis);

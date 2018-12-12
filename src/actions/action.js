@@ -23,6 +23,10 @@ export const DELETE_USER_FAILURE = "DELETE_USER_FAILURE";
 //const for messages
 export const GET_MESSAGES = "GET_MESSAGES";
 
+// const for getting user info
+export const GET_ALL_USERS = "GET_ALL_USERS";
+export const GET_USER = "GET_USER";
+export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 
 //consts for profile.  push onto the history stack (to hit back a page)
 
@@ -61,6 +65,19 @@ export const register = registerData => dispatch => {
         register: data,
         result: "Successfully Registered!"
       });
+      
+      async function fixTheRoute() {
+        await dispatch(
+          login({
+            username: registerData.username,
+            password: registerData.password
+          })
+        );
+
+      };
+      fixTheRoute()
+      
+      dispatch(push("/userProfile"));
     })
     .catch(err => {
       // dispatch here on fail --
@@ -98,8 +115,7 @@ export const login = loginData => dispatch => {
       if (data.success === true) {
         dispatch({
           type: LOGIN_SUCCESS,
-          loginData: data,
-        
+          loginData: data
         });
         // logic for routing
         dispatch(push("/mainFeed"));
@@ -148,7 +164,7 @@ export const updateUser = newUserData => (dispatch, getState) => {
         type: UPDATE_USER_SUCCESS,
         displayName: data.user.displayName
       });
-      // logic for routing when dealing with asych functions. 
+      // logic for routing when dealing with asych functions.
       dispatch(push("/mainFeed"));
     })
     .catch(err => {
@@ -169,7 +185,7 @@ export const deleteUser = () => (dispatch, getState) => {
   fetch("https://kwitter-api.herokuapp.com/users", {
     method: "DELETE",
     headers: {
-      Authorization: "Bearer " + token,
+      Authorization: "Bearer " + token
     }
   })
     .then(res => {
@@ -182,7 +198,7 @@ export const deleteUser = () => (dispatch, getState) => {
     })
     .then(data => {
       dispatch({
-        type: DELETE_USER_SUCCESS,
+        type: DELETE_USER_SUCCESS
       });
       dispatch(push("/"));
     })
@@ -194,17 +210,51 @@ export const deleteUser = () => (dispatch, getState) => {
     });
 };
 
-export const fetchMessages = () => (dispatch) => {
+export const fetchMessages = () => dispatch => {
   fetch("https://kwitter-api.herokuapp.com/messages?limit=10000")
     .then(response => response.json())
     .then(data => {
-      dispatch(getMessages(data.messages))
-    })
-}
+      dispatch(getMessages(data.messages));
+    });
+};
 
-export const getMessages = (messages) => {
+export const getMessages = messages => {
   return {
-      type: GET_MESSAGES,
-      messages
-  }
-}
+    type: GET_MESSAGES,
+    messages
+  };
+};
+
+export const getUserData = () => (dispatch, getState) => {
+  const userId = getState().loginData.id;
+  dispatch({
+    type: GET_USER
+  });
+  fetch(`https://kwitter-api.herokuapp.com/users/${userId}`)
+    .then(response => response.json())
+    .then(data => {
+      dispatch(getUserSuccess(data.user));
+    });
+};
+
+export const getUserSuccess = user => {
+  return {
+    type: GET_USER_SUCCESS,
+    user
+  };
+};
+
+export const getAllUsersInfo = () => dispatch => {
+  fetch("https://kwitter-api.herokuapp.com/users?limit=100&offset=0")
+    .then(response => response.json())
+    .then(data => {
+      dispatch(getAllInfo(data.users));
+    });
+};
+
+export const getAllInfo = users => {
+  return {
+    type: GET_ALL_USERS,
+    users
+  };
+};
