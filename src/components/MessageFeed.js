@@ -4,9 +4,12 @@ import { connect } from "react-redux";
 import { fetchMessages } from "../actions/action";
 import { MessageInputBox } from "./MessageInputBox";
 
-class MessageFeed extends React.Component {
-  componentDidMount() {
-    this.props.fetchMessages();
+
+export class MessageFeed extends React.Component {
+  componentDidMount(){
+    this.props.fetchMessages()
+
+
   }
   render() {
     return (

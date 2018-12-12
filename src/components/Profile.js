@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { register, updateUser } from "../actions/action";
+
+import AHMessageFeed from "./AHMessageFeed.js";
+import DeleteUserButton from "./deleteUserButton.js"
+import MainFeedNavButton from "./MainFeedNavButton.js"
+
+
 import { Grid, Card, Image, Icon } from "semantic-ui-react";
 import "../styles/Profile.css";
+
 //this was class changeuserprofile
 class Profile extends React.Component {
   state = {
@@ -96,6 +103,19 @@ class Profile extends React.Component {
             <input className="input" type="password" />
           </fieldset>
           <br />
+
+          Uploaded Photo Will be added here.
+          <button>upload photo</button>
+          {/* Add Clint's photo button after QA */}
+          <br />
+          <AHMessageFeed />
+          <MainFeedNavButton />
+          <button>delete user
+            <DeleteUserButton />
+          </button>
+        </div>
+      </div>
+
           <div className="submitchangebutton">
             <button onClick={this.handleUpdate}>Submit changes</button>
           </div>
@@ -108,6 +128,7 @@ class Profile extends React.Component {
           </div>
         </Grid.Column>
       </Grid>
+
     );
   }
 }

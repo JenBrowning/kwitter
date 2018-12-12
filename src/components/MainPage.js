@@ -1,6 +1,8 @@
 import "../styles/MainPage.css";
 import React from "react";
 import { Grid, Container, Icon, Image, Card, Sticky } from "semantic-ui-react";
+
+import ProfilePageNavButton from "./ProfilePageNavButton";
 import { messagefeed } from "./Component/MessageInputBox";
 import MessageInputBox from "./MessageInputBox";
 
@@ -39,6 +41,7 @@ class MainPage extends React.Component {
             <Grid.Column width={3}>
               <Sticky offset={75}>{/* <CustomFooter /> */}</Sticky>
             </Grid.Column>
+            <ProfilePageNavButton />
           </Grid.Row>
           <MessageInputBox />
         </Grid>

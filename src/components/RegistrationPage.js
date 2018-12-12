@@ -63,11 +63,13 @@ class RegistrationPage extends Component {
             />
           </fieldset>
         </form>
+
         <div className="button">
           <button onClick={this.handleRegister} placeholder="Register">
             Register
           </button>
         </div>
+
       </div>
     );
   }
