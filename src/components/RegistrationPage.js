@@ -38,7 +38,7 @@ class RegistrationPage extends Component {
     return (
       <div className="entireform">
         <Grid className="grid">
-          <Form>
+          <Form className="somethingGood">
             <Segment stacked>
               <Form.Field>
                 <input

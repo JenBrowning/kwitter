@@ -6,3 +6,8 @@ body {
   vertical-align: middle;
   text-align: center;
 }
+
+.somethingGood {
+  background-color: rgba(231, 180, 0.562);
+  padding: 20px;
+}
