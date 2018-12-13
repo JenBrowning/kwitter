@@ -31,6 +31,11 @@ export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_MESSAGES = "GET_USER_MESSAGES";
 export const POST_MESSAGES = "POST_MESSAGES";
 
+// consts for logout
+// export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+// export const LOGOUT = "LOGOUT";
+// export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
+
 export const postMessage = text => (dispatch, getState) => {
   const token = getState().loginData.token;
 
@@ -239,7 +244,7 @@ export const deleteUser = () => (dispatch, getState) => {
 };
 
 export const fetchMessages = () => dispatch => {
-  fetch("https://kwitter-api.herokuapp.com/messages?limit=10000")
+  fetch("https://kwitter-api.herokuapp.com/messages?limit=10")
     .then(response => response.json())
     .then(data => {
       dispatch(getMessages(data.messages));
