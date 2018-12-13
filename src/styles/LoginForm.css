@@ -2,6 +2,8 @@
   display: flex;
   justify-content: center;
   margin: auto;
+  background-color: rgba(231, 180, 0.562);
+  padding: 20px;
 }
 
 form {
