@@ -110,7 +110,7 @@ export const register = registerData => dispatch => {
 
 export const loginThenMainFeed = loginData => dispatch => {
   dispatch(login(loginData))
-  .then(() => dispatch(push('/mainFeed')))
+  // .then(() => dispatch(push('/mainFeed')))
 }
 
 export const login = loginData => dispatch => {
@@ -118,7 +118,6 @@ export const login = loginData => dispatch => {
   dispatch({
     type: LOGIN
   });
-
   return fetch("https://kwitter-api.herokuapp.com/auth/login", {
     method: "POST",
     headers: {
@@ -138,6 +137,7 @@ export const login = loginData => dispatch => {
     .then(data => {
       // dispatch here on success --
       if (data.success === true) {
+        console.log('login success')
         dispatch({
           type: LOGIN_SUCCESS,
           loginData: data
@@ -145,7 +145,7 @@ export const login = loginData => dispatch => {
         // logic for routing
         dispatch(getAllUsersInfo());
 
-        // dispatch(push("/mainFeed"));
+        dispatch(push("/mainFeed"))
 
       } else {
         throw "nope.";
@@ -153,6 +153,8 @@ export const login = loginData => dispatch => {
     })
     .catch(err => {
       // dispatch here on fail --
+      console.log("LOGIN_FAILURE")
+      window.alert("Invalid Username or Password. YOU SHALL NOT PASS!")
       dispatch({
         type: LOGIN_FAILURE,
         loginResult: "You shall not pass!"

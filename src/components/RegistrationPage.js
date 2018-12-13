@@ -34,6 +34,7 @@ class RegistrationPage extends Component {
       displayName: this.state.displayName
     });
   };
+
   render() {
     return (
       <div className="entireform">

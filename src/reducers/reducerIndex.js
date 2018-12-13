@@ -84,7 +84,7 @@ const reducer = (state = initialState, action) => {
     case LOGIN_FAILURE:
       return {
         ...state,
-        loginResult: action.result
+        loginResult: action.loginResult
       };
 
     case LOGIN:
