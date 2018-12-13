@@ -31,6 +31,8 @@ export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_MESSAGES = "GET_USER_MESSAGES";
 export const POST_MESSAGES = "POST_MESSAGES";
 
+export const LOGOUT_USER = "LOGOUT_USER";
+
 // consts for logout
 // export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 // export const LOGOUT = "LOGOUT";
@@ -116,6 +118,7 @@ export const register = registerData => dispatch => {
 export const loginThenMainFeed = loginData => dispatch => {
   dispatch(login(loginData))
   .then(() => dispatch(push('/mainFeed')))
+  .catch(() => window.alert("STAY OUT.  Bad password or username."))
 }
 
 export const login = loginData => dispatch => {
@@ -150,15 +153,14 @@ export const login = loginData => dispatch => {
         // logic for routing
         dispatch(getAllUsersInfo());
 
-        // dispatch(push("/mainFeed"));
-
       } else {
         throw "nope.";
       }
     })
     .catch(err => {
       // dispatch here on fail --
-      dispatch({
+      
+      throw dispatch({
         type: LOGIN_FAILURE,
         loginResult: "You shall not pass!"
       });
@@ -308,3 +310,15 @@ export const getAllInfo = users => {
     users
   };
 };
+
+
+export const logoutUser = () => dispatch => {
+  dispatch(logoutCurrentUser())
+  dispatch(push("/"))
+}
+
+export const logoutCurrentUser= () => {
+  return {
+    type: LOGOUT_USER
+  }
+}

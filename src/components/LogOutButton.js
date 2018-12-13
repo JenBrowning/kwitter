@@ -1,15 +1,15 @@
 import "../styles/LogOutButton.css";
 import React from "react";
 import { Button } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { logoutUser } from '../actions/action';
 
 class LogOutButton extends React.Component {
   render() {
     return (
-      // button below takes user to the login page
-      //
       <Button
         className="logOutButton"
-        // onClick={this.props.toLoginPage}
+        onClick={this.props.logoutUser}
       >
         Log Out
       </Button>
@@ -17,4 +17,12 @@ class LogOutButton extends React.Component {
   }
 }
 
-export default LogOutButton;
+
+const mapDispatchToProps = {
+  logoutUser
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(LogOutButton);

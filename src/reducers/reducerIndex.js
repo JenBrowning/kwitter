@@ -25,6 +25,8 @@ import {
   GET_USER_MESSAGES
 } from "../actions/action";
 
+import { LOGOUT_USER } from "../actions/action";
+
 const initialState = {
   register: {},
   registerResult: "",
@@ -86,7 +88,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         loginResult: action.result
       };
-
+// above line for login failure window alert
     case LOGIN:
       return {
         ...state,
@@ -161,6 +163,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         AHMessages: action.messages
+      };
+    
+    case LOGOUT_USER:
+      return {
+        ...initialState
       };
 
     default:

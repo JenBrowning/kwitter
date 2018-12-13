@@ -10,7 +10,7 @@
   position: relative;
   border: 2px solid black;
   background-image: url("photos/stockIcon.gif");
-  background-size: 75px 75px;
+  background-size: 100% 100%;
   border-radius: 50%;
   height: 100%;
   width: 100px;
