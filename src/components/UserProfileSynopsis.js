@@ -4,6 +4,7 @@ import { Card, Image, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { getUserData } from "../actions/action";
 import moment from "moment";
+import ImageDisplayer from './ImageDisplayer';
 
 class UserProfileSynopsis extends React.Component {
   componentDidMount() {
@@ -20,7 +21,8 @@ class UserProfileSynopsis extends React.Component {
     return (
       <div className="container">
         <Card className="userprofile">
-          <Image src="https://semantic-ui.com/images/wireframe/image.png" />
+          {/* <Image src="https://semantic-ui.com/images/wireframe/image.png" /> */}
+          <ImageDisplayer userID={this.props.user.id} />
           {/* link to image file above  this.state.user.photo? */}
           <Card.Content>
             <Card.Header>Name: {this.props.user.displayName}</Card.Header>

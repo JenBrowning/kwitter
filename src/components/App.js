@@ -60,7 +60,6 @@ class App extends React.Component {
                 render={props => (
                   <React.Fragment>
                     <Profile />
-                    <LogOutButton />
                   </React.Fragment>
                 )}
               />
@@ -68,11 +67,7 @@ class App extends React.Component {
                 path={"/mainFeed"}
                 render={props => (
                   <React.Fragment>
-                    {/* <UserProfileSynopsis /> */}
-                    {/* <MessageFeed /> */}
                     <MainPage />
-                    {/* <MessageInputBox /> */}
-                    {/* <LogOutButton /> */}
                   </React.Fragment>
                 )}
               />
