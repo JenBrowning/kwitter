@@ -10,7 +10,9 @@ import AHMessageFeed from "./AHMessageFeed.js";
 import DeleteUserButton from "./deleteUserButton.js";
 import MainFeedNavButton from "./MainFeedNavButton.js";
 import { Grid, Button, Form, Segment } from "semantic-ui-react";
+import LogOutButton from './LogOutButton';
 import "../styles/Profile.css";
+import ImageUploader from './ImageUploader';
 //this was class changeuserprofile
 class Profile extends React.Component {
   state = {
@@ -50,7 +52,7 @@ class Profile extends React.Component {
             <Grid.Column>
               <UserProfileSynopsis />
               <div className="uploadphoto">
-                <Button>Upload photo</Button>
+                <ImageUploader />
               </div>
             </Grid.Column>
           </Form.Field>
@@ -96,9 +98,7 @@ class Profile extends React.Component {
                 <DeleteUserButton />
                 <br />
                 <MainFeedNavButton />
-                <Button className="button" onClick={this.props.toLoginPage}>
-                  Log Out
-                </Button>
+                <LogOutButton />
               </Segment>
             </Grid.Column>
           </Form.Field>
@@ -117,3 +117,5 @@ export default connect(
   null,
   mapDispatchToProps
 )(Profile);
+
+

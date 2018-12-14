@@ -1,10 +1,12 @@
 {
+  "homepage": "https://LEllingwood.github.io/kwitter",
   "name": "kwitter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
     "connected-react-router": "^4.5.0",
+    "gh-pages": "^2.0.1",
     "gulp": "^4.0.0",
     "history": "^4.7.2",
     "moment": "^2.22.2",
@@ -23,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

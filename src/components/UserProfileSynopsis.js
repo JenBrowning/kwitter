@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getUserData } from "../actions/action";
 import moment from "moment";
 import ImageDisplayer from './ImageDisplayer';
+import ImageUploader from './ImageDisplayer';
 
 class UserProfileSynopsis extends React.Component {
   componentDidMount() {

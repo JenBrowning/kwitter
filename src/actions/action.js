@@ -33,6 +33,9 @@ export const POST_MESSAGES = "POST_MESSAGES";
 
 export const LOGOUT_USER = "LOGOUT_USER";
 
+export const UPLOAD_IMAGE_SUCCESS = "UPLOAD_IMAGE_SUCCESS";
+export const UPLOAD_IMAGE_FAILURE = "UPLOAD_IMAGE_FAILURE";
+
 // consts for logout
 // export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 // export const LOGOUT = "LOGOUT";
@@ -118,7 +121,7 @@ export const register = registerData => dispatch => {
 export const loginThenMainFeed = loginData => dispatch => {
   dispatch(login(loginData))
   .then(() => dispatch(push('/mainFeed')))
-  .catch(() => window.alert("STAY OUT.  Bad password or username."))
+  .catch(() => window.alert("GET OUT RIGHT NOW!!!!  Bad password or username."))
 }
 
 export const login = loginData => dispatch => {
@@ -322,3 +325,30 @@ export const logoutCurrentUser= () => {
     type: LOGOUT_USER
   }
 }
+export const uploadImage = imageData => (dispatch, getState) => {
+  const token = getState().loginData.token;
+  fetch("https://kwitter-api.herokuapp.com/users/picture", {
+    method: "PUT",
+    headers: {
+      Authorization: "Bearer " + token,
+      // "Content-Type": "multipart/form-data"
+    },
+    body:  imageData
+  })
+  .then(res => {
+    if (!res.ok) {
+        throw res.status;
+    } else {
+      dispatch({
+        type: UPLOAD_IMAGE_SUCCESS,
+        uploadImageResult: "Upload Successful!"}
+      )
+    }
+  })
+  .catch(err => {
+    dispatch({
+      type: UPLOAD_IMAGE_FAILURE,
+      uploadImageResult: "Upload image failed.  Please try again later!"
+    });
+  });
+ }
