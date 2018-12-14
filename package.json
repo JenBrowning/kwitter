@@ -1,11 +1,14 @@
 {
+
   "homepage": "https://iam2anangel.github.io/kwitter",
+
   "name": "kwitter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
     "connected-react-router": "^4.5.0",
+    "gh-pages": "^2.0.1",
     "gulp": "^4.0.0",
     "history": "^4.7.2",
     "moment": "^2.22.2",

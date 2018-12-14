@@ -27,11 +27,14 @@ import {
 
 import { LOGOUT_USER } from "../actions/action";
 
+import { UPLOAD_IMAGE_SUCCESS, UPLOAD_IMAGE_FAILURE } from "../actions/action";
+
 const initialState = {
   register: {},
   registerResult: "",
   loginData: { token: "", id: 0, success: false },
   loginResult: "",
+  uploadImageResult: "",
 
   user: {
     id: 0,
@@ -88,7 +91,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         loginResult: action.result
       };
-// above line for login failure window alert
+    // above line for login failure window alert
     case LOGIN:
       return {
         ...state,
@@ -164,10 +167,22 @@ const reducer = (state = initialState, action) => {
         ...state,
         AHMessages: action.messages
       };
-    
+
     case LOGOUT_USER:
       return {
         ...initialState
+      };
+
+    case UPLOAD_IMAGE_SUCCESS:
+      return {
+        ...state,
+        uploadImageResult: action.uploadImageResult
+      };
+
+    case UPLOAD_IMAGE_FAILURE:
+      return {
+        ...state,
+        uploadImageResult: action.uploadImageResult
       };
 
     default:
