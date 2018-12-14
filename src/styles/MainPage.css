@@ -1,29 +1,39 @@
 .grid {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: lightblue;
   margin: auto;
   height: 800px;
-  max-width: 1200px;
+  /* max-width: 1200px; */
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding-top: 30px;
 }
 
 .gridcolumn1 {
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
-  margin: 20px;
+  margin: auto;
+  padding: 20px;
 }
 
 .gridcolumn2 {
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
-  margin: 20px;
+  margin: auto;
+  padding: 10px;
 }
 
 .gridcolumn3 {
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
-  margin: 20px;
+  margin: auto;
 }

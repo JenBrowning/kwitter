@@ -1,10 +1,10 @@
 import "../styles/MainPage.css";
 import React from "react";
-import { Grid, Container, Icon, Image, Card, Sticky } from "semantic-ui-react";
+import { Grid, Form, Segment } from "semantic-ui-react";
 
-import  MessageFeed  from "./MessageFeed";
+import MessageFeed from "./MessageFeed";
 import LogOutButton from "./LogOutButton";
-import UserProfileSynopsis from './UserProfileSynopsis';
+import UserProfileSynopsis from "./UserProfileSynopsis";
 import MessageInputBox from "./MessageInputBox.js";
 import ProfilePageNavButton from "./ProfilePageNavButton.js";
 
@@ -12,45 +12,29 @@ import ProfilePageNavButton from "./ProfilePageNavButton.js";
 class MainPage extends React.Component {
   render() {
     return (
-      <Container className="container">
-        <Grid className="grid" centered>
-          <Grid.Row columns={3}>
-            <Grid.Column width={3}>
-              <Sticky offset={75}>
-                <Card className="userprofile">
-                  <Image src="./jen.jpeg" />
-                  <Card.Content>
-                    <Card.Header>Jen</Card.Header>
-                    <Card.Meta>
-                      <span className="date">Joined in 2015</span>
-                    </Card.Meta>
-                    <Card.Description>Hello my name is Jen</Card.Description>
-                  </Card.Content>
-                  <Card.Content extra>
-                    <a>
-                      <Icon name="user" />
-                      22 Friends
-                    </a>
-                  </Card.Content>
-                </Card>
-              </Sticky>
+      <Grid className="grid" centered>
+        <Form className="form">
+          <Form.Field className="gridcolumn1" width={4}>
+            <Grid.Column>
+              <UserProfileSynopsis />
             </Grid.Column>
+          </Form.Field>
 
-            <Grid.Column width={8}>
-              <Container className="messagefeed" />
-              {/* <MessageFeed /> */}
+          <Form.Field className="gridcolumn2" width={6}>
+            <Grid.Column>
+              <MessageInputBox />
+              <MessageFeed />
             </Grid.Column>
-            <Grid.Column width={3}>
-              <Sticky offset={75}>{/* <CustomFooter /> */}</Sticky>
+          </Form.Field>
+
+          <Form.Field className="gridcolumn3" width={4}>
+            <Grid.Column>
+              <ProfilePageNavButton />
+              <LogOutButton />
             </Grid.Column>
-            <ProfilePageNavButton />
-            <MessageFeed />
-            <UserProfileSynopsis />
-            <LogOutButton />
-          </Grid.Row>
-          <MessageInputBox />
-        </Grid>
-      </Container>
+          </Form.Field>
+        </Form>
+      </Grid>
     );
   }
 }

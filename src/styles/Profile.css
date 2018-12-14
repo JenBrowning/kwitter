@@ -1,17 +1,25 @@
 .grid {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: lightblue;
   margin: auto;
-  height: 800px;
-  max-width: 1400px;
+  height: 900px;
+  /* max-width: 1200px; */
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding-top: 30px;
 }
 
 .gridcolumn1 {
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
-  margin: 20px;
+  margin: auto;
   padding: 20px;
 }
 
@@ -19,21 +27,23 @@
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
-  margin: 20px;
-  padding: 20px;
+  margin: auto;
 }
 
 .gridcolumn3 {
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
-  margin: 20px;
+  margin: auto;
   padding: 20px;
 }
-
 .button {
   margin: auto;
-  padding: 3px;
+  padding: 10px;
+}
+
+.segment {
+  padding: 10px;
 }
 
 /* .column1 {

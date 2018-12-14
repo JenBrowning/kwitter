@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "semantic-ui-react";
 
 class ProfilePageNavButton extends React.Component {
   render() {
@@ -7,7 +8,7 @@ class ProfilePageNavButton extends React.Component {
       // button below takes user to the main page
       //
       <Link to="/userProfile">
-        <button className="profilePageNavButton">Profile Page</button>
+        <Button className="profilePageNavButton">Profile Page</Button>
       </Link>
     );
   }
