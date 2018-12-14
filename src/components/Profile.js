@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { register, updateUser } from "../actions/action";
 import MessageFeed from "./MessageFeed";
 import UserProfileSynopsis from "./UserProfileSynopsis";
-// import MessageInputBox from "./MessageInputBox.js";
+
 import AHMessageFeed from "./AHMessageFeed.js";
 import DeleteUserButton from "./deleteUserButton.js";
 import MainFeedNavButton from "./MainFeedNavButton.js";
@@ -56,17 +56,22 @@ class Profile extends React.Component {
               </div>
             </Grid.Column>
           </Form.Field>
+
           <Form.Field className="gridcolumn2" width={6}>
             <Grid.Column>
               <p>Where the feed for Profile goes</p>
               {/* <AHMessageFeed /> */}
+
               <AHMessageFeed />
             </Grid.Column>
           </Form.Field>
           <Form.Field className="gridcolumn3" width={4}>
             <Grid.Column>
               <legend>Making a Change?</legend>
-              <Segment stacked>
+
+
+              <Segment className="segment" stacked>
+
                 <Form.Field>
                   <input
                     className="input"
@@ -92,13 +97,20 @@ class Profile extends React.Component {
                   <br />
                   <input className="input" type="password" />
                 </Form.Field>
+
                 <Button className="button" onClick={this.handleUpdate}>
                   Submit changes
                 </Button>
                 <DeleteUserButton />
                 <br />
                 <MainFeedNavButton />
+
                 <LogOutButton />
+
+                <Button className="button" onClick={this.props.toLoginPage}>
+                  Log Out
+                </Button>
+
               </Segment>
             </Grid.Column>
           </Form.Field>
@@ -107,6 +119,7 @@ class Profile extends React.Component {
     );
   }
 }
+
 const mapDispatchToProps = dispatch => {
   return {
     updateUser: userData => dispatch(updateUser(userData))

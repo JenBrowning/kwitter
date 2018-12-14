@@ -6,36 +6,65 @@
   background-color: lightblue;
   margin: auto;
   height: 800px;
+<<<<<<< HEAD
+  /* max-width: 1200px; */
+}
+
+.form {
+=======
   padding-top: 20px;
   /* max-width: 1200px; */
  }
  
  .form {
+>>>>>>> b915baba06926f63e6d6fa9eb9dd2f432aea2044
   display: flex;
   justify-content: center;
   margin: auto;
   padding-top: 30px;
+<<<<<<< HEAD
+}
+
+.gridcolumn1 {
+=======
   border-radius: 20px;
  }
  
  .gridcolumn1 {
+>>>>>>> b915baba06926f63e6d6fa9eb9dd2f432aea2044
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
   margin: auto;
   padding: 20px;
+<<<<<<< HEAD
+}
+
+.gridcolumn2 {
+=======
  }
  .gridcolumn2 {
+>>>>>>> b915baba06926f63e6d6fa9eb9dd2f432aea2044
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
   margin: auto;
   padding: 10px;
+<<<<<<< HEAD
+}
+
+.gridcolumn3 {
+=======
  }
  
  .gridcolumn3 {
+>>>>>>> b915baba06926f63e6d6fa9eb9dd2f432aea2044
   border: 2px solid black;
   background-color: white;
   border-radius: 20px;
   margin: auto;
+<<<<<<< HEAD
+}
+=======
  }
+>>>>>>> b915baba06926f63e6d6fa9eb9dd2f432aea2044

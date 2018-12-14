@@ -37,8 +37,13 @@ class RegistrationPage extends Component {
   render() {
     return (
       <div className="entireform">
+<<<<<<< HEAD
+        <Grid className="grid" centered>
+          <Form className="regform">
+=======
         <Grid className="grid">
           <Form className="somethingGood">
+>>>>>>> b915baba06926f63e6d6fa9eb9dd2f432aea2044
             <Segment stacked>
               <Form.Field>
                 <input

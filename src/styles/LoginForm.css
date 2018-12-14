@@ -9,6 +9,12 @@ form {
   display: flex;
   justify-content: center;
   margin: auto;
+<<<<<<< HEAD
+  background-color: rgba(231, 180, 180, 0.562);
+  padding: 20px;
+}
+=======
   background-color: rgba(231, 180, 0.562);
   padding: 20px;
 }
+>>>>>>> b915baba06926f63e6d6fa9eb9dd2f432aea2044

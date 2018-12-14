@@ -7,7 +7,14 @@ body {
   text-align: center;
 }
 
+<<<<<<< HEAD
+.regform {
+  background-color: rgba(231, 180, 180, 0.562);
+  padding: 20px;
+}
+=======
 .somethingGood {
   background-color: rgba(231, 180, 0.562);
   padding: 20px;
 }
+>>>>>>> b915baba06926f63e6d6fa9eb9dd2f432aea2044
