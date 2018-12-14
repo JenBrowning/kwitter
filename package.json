@@ -1,7 +1,5 @@
 {
-
   "homepage": "https://iam2anangel.github.io/kwitter",
-
   "name": "kwitter",
   "version": "0.1.0",
   "private": true,
@@ -12,7 +10,6 @@
     "gulp": "^4.0.0",
     "history": "^4.7.2",
     "moment": "^2.22.2",
-    "gh-pages": "^2.0.1",
     "react": "^16.6.3",
     "react-center": "^1.1.1",
     "react-dom": "^16.6.3",
