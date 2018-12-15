@@ -41,10 +41,14 @@ export const UPLOAD_IMAGE_FAILURE = "UPLOAD_IMAGE_FAILURE";
 // export const LOGOUT = "LOGOUT";
 // export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 
+const api = 'https://rocky-lake-69947.herokuapp.com'
+// const api = 'https://kwitter-api.herokuapp.com'
+
 export const postMessage = text => (dispatch, getState) => {
   const token = getState().loginData.token;
 
-  fetch("https://kwitter-api.herokuapp.com/messages/", {
+  fetch(`${api}/messages/`, {
+  // fetch("https://kwitter-api.herokuapp.com/messages/", {
     method: "POST",
     headers: {
       Authorization: "Bearer " + token,
@@ -73,7 +77,8 @@ export const register = registerData => dispatch => {
     type: REGISTER
   });
 
-  fetch("https://kwitter-api.herokuapp.com/auth/register", {
+  fetch(`${api}/auth/register`, {
+  // fetch("https://kwitter-api.herokuapp.com/auth/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -130,7 +135,8 @@ export const login = loginData => dispatch => {
     type: LOGIN
   });
 
-  return fetch("https://kwitter-api.herokuapp.com/auth/login", {
+  return fetch(`${api}/auth/login`, {
+  // return fetch("https://kwitter-api.herokuapp.com/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -179,7 +185,8 @@ export const updateUser = newUserData => (dispatch, getState) => {
     type: UPDATE_USER
   });
 
-  fetch("https://kwitter-api.herokuapp.com/users", {
+  fetch(`${api}/users`, {
+  // fetch("https://kwitter-api.herokuapp.com/users", {
     method: "PATCH",
     headers: {
       Authorization: "Bearer " + token,
@@ -220,7 +227,8 @@ export const deleteUser = () => (dispatch, getState) => {
     type: DELETE_USER
   });
 
-  fetch("https://kwitter-api.herokuapp.com/users", {
+  fetch(`${api}/users`, {
+  // fetch("https://kwitter-api.herokuapp.com/users", {
     method: "DELETE",
     headers: {
       Authorization: "Bearer " + token
@@ -249,7 +257,8 @@ export const deleteUser = () => (dispatch, getState) => {
 };
 
 export const fetchMessages = () => dispatch => {
-  fetch("https://kwitter-api.herokuapp.com/messages?limit=10")
+  fetch(`${api}/messages?limit=10`)
+  // fetch("https://kwitter-api.herokuapp.com/messages?limit=10")
     .then(response => response.json())
     .then(data => {
       dispatch(getMessages(data.messages));
@@ -265,7 +274,8 @@ export const getMessages = messages => {
 
 export const fetchAHMessages = () => (dispatch, getState) => {
   const AHID = getState().loginData.id;
-  fetch(`https://kwitter-api.herokuapp.com/users/${AHID}`)
+  fetch(`${api}/users/${AHID}`)
+  // fetch(`https://kwitter-api.herokuapp.com/users/${AHID}`)
     //AHID is a javascript variable that pulls the information from the redux state which houses the information of our user ID and allows us to put it into the fetch request.
     .then(response => response.json())
     .then(data => {
@@ -285,7 +295,8 @@ export const getUserData = () => (dispatch, getState) => {
   dispatch({
     type: GET_USER
   });
-  fetch(`https://kwitter-api.herokuapp.com/users/${userId}`)
+  fetch(`${api}/users/${userId}`)
+  // fetch(`https://kwitter-api.herokuapp.com/users/${userId}`)
     .then(response => response.json())
     .then(data => {
       dispatch(getUserSuccess(data.user));
@@ -300,7 +311,8 @@ export const getUserSuccess = user => {
 };
 
 export const getAllUsersInfo = () => dispatch => {
-  fetch("https://kwitter-api.herokuapp.com/users?limit=10000&offset=0")
+  fetch(`${api}/users?limit=10000&offset=0`)
+  // fetch("https://kwitter-api.herokuapp.com/users?limit=10000&offset=0")
     .then(response => response.json())
     .then(data => {
       dispatch(getAllInfo(data.users));
@@ -327,7 +339,8 @@ export const logoutCurrentUser= () => {
 }
 export const uploadImage = imageData => (dispatch, getState) => {
   const token = getState().loginData.token;
-  fetch("https://kwitter-api.herokuapp.com/users/picture", {
+  fetch(`${api}/users/picture`, {
+  // fetch("https://kwitter-api.herokuapp.com/users/picture", {
     method: "PUT",
     headers: {
       Authorization: "Bearer " + token,
