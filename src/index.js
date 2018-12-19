@@ -16,7 +16,6 @@ const history = createBrowserHistory({basename: process.env.PUBLIC_URL})
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-//window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 const store = createStore(
   connectRouter(history)(reducer),
   composeEnhancers(applyMiddleware(routerMiddleware(history), thunk))
@@ -24,7 +23,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter basename={process.env.PUBLIC_URL} history={history}> 
+    <ConnectedRouter history={history}> 
       <App />
     </ConnectedRouter>
   </Provider>,
