@@ -1,7 +1,7 @@
 {
   "main.css": "/kwitter/static/css/main.7c8af28a.chunk.css",
-  "main.js": "/kwitter/static/js/main.880f0f53.chunk.js",
-  "main.js.map": "/kwitter/static/js/main.880f0f53.chunk.js.map",
+  "main.js": "/kwitter/static/js/main.950d39a1.chunk.js",
+  "main.js.map": "/kwitter/static/js/main.950d39a1.chunk.js.map",
   "static/js/1.9e1d359e.chunk.js": "/kwitter/static/js/1.9e1d359e.chunk.js",
   "static/js/1.9e1d359e.chunk.js.map": "/kwitter/static/js/1.9e1d359e.chunk.js.map",
   "runtime~main.js": "/kwitter/static/js/runtime~main.1bef2d23.js",
@@ -9,6 +9,6 @@
   "static/media/Header.css": "/kwitter/static/media/stockIcon.b531e899.gif",
   "static/css/main.7c8af28a.chunk.css.map": "/kwitter/static/css/main.7c8af28a.chunk.css.map",
   "index.html": "/kwitter/index.html",
-  "precache-manifest.d546d942b3cc0b16461bc577bad32a51.js": "/kwitter/precache-manifest.d546d942b3cc0b16461bc577bad32a51.js",
+  "precache-manifest.7855e97d32abfa89213f7e2abec00c14.js": "/kwitter/precache-manifest.7855e97d32abfa89213f7e2abec00c14.js",
   "service-worker.js": "/kwitter/service-worker.js"
 }

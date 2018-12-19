@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/kwitter/static/js/runtime~main.1bef2d23.js"
   },
   {
-    "revision": "880f0f53e51a453d574b",
-    "url": "/kwitter/static/js/main.880f0f53.chunk.js"
+    "revision": "950d39a1e0a633f99ff1",
+    "url": "/kwitter/static/js/main.950d39a1.chunk.js"
   },
   {
     "revision": "9e1d359eee1382c481fc",
     "url": "/kwitter/static/js/1.9e1d359e.chunk.js"
   },
   {
-    "revision": "880f0f53e51a453d574b",
+    "revision": "950d39a1e0a633f99ff1",
     "url": "/kwitter/static/css/main.7c8af28a.chunk.css"
   },
   {
-    "revision": "4dd12124245b231aa2964f4b95b684e8",
+    "revision": "5b46e31f282112d7cc9d1002e18548f5",
     "url": "/kwitter/index.html"
   }
 ];
