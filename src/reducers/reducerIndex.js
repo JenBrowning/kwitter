@@ -34,6 +34,7 @@ const initialState = {
   registerResult: "",
   loginData: { token: "", id: 0, success: false },
   loginResult: "",
+  isLoggingIn: false,
   uploadImageResult: "",
 
   user: {
@@ -83,19 +84,21 @@ const reducer = (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        loginData: action.loginData
+        loginData: action.loginData,
+        isLoggingIn: false
       };
 
     case LOGIN_FAILURE:
       return {
         ...state,
-        loginResult: action.result
+        loginResult: action.result,
+        isLoggingIn: false
       };
     // above line for login failure window alert
     case LOGIN:
       return {
         ...state,
-        loginResult: action.result
+        isLoggingIn: true
       };
 
     case DELETE_USER_SUCCESS:

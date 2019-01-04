@@ -4,6 +4,7 @@ import { loginThenMainFeed } from "../actions/action";
 import { Link } from "react-router-dom";
 import { Form, Grid, Segment } from "semantic-ui-react";
 import "../styles/LoginForm.css";
+import Spinner from "react-spinkit";
 
 class LoginForm extends Component {
   state = {
@@ -24,6 +25,7 @@ class LoginForm extends Component {
   };
 
   handleLogin = event => {
+    event.preventDefault();
     this.props.login({
       username: this.state.username,
       password: this.state.password
@@ -33,11 +35,7 @@ class LoginForm extends Component {
   render() {
     return (
       <Grid>
-        <Form
-          action="https://s.codepen.io/voltron2112/debug/PqrEPM?"
-          method="get"
-          className="ui large form"
-        >
+        <Form onSubmit={this.handleLogin} className="ui large form">
           <Segment>
             <div className="ui stacked secondary segment">
               <div className="field">
@@ -62,12 +60,23 @@ class LoginForm extends Component {
                   />
                 </div>
               </div>
-              <div
+              <button
                 className="ui fluid large teal submit button"
-                onClick={this.handleLogin}
+                type="submit"
+                disabled={this.props.disabled}
               >
                 Login
-              </div>
+              </button>
+              {this.props.isLoading ? (
+                <Spinner
+                  name="three-bounce"
+                  color="orange"
+                  fadeIn="none"
+                  style={{ paddingTop: "10px" }}
+                />
+              ) : (
+                <br />
+              )}
             </div>
             <Link to="/registration">
               <div className="ui message">
@@ -88,7 +97,9 @@ class LoginForm extends Component {
 }
 const mapStateToProps = state => {
   return {
-    result: state.LoginResult
+    result: state.LoginResult,
+    disabled: state.isLoggingIn,
+    isLoading: state.isLoggingIn
   };
 };
 
